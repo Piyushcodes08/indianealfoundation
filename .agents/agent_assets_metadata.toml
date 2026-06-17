@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "2YbYBLqjhh6S5NFf4LpUM"
+uri = "file://artifacts/neal-foundation-video/public/images/bg-tech.png"
+type = "image"
+title = "Abstract corporate tech background"
+
+[[generated]]
+id = "77xLiIz8DohkOv4oHbBPq"
+uri = "file://artifacts/neal-foundation-video/public/images/bg-network.png"
+type = "image"
+title = "Abstract network connections"

@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/neal-foundation-video/"
+title = "Neal Foundation — Brand Video"
+version = "1.0.0"
+id = "artifacts/neal-foundation-video"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/neal-foundation-video/" ]
+localPort = 23043
+
+[services.development]
+run = "pnpm --filter @workspace/neal-foundation-video run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/neal-foundation-video", "run", "build" ]
+publicDir = "artifacts/neal-foundation-video/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23043"
+BASE_PATH = "/neal-foundation-video/"
