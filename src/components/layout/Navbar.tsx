@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,35 +7,37 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [location]);
+
+  useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Industries", href: "#industries" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Industries", href: "/industries" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/94 backdrop-blur-xl border-b border-border  shadow-[0_12px_36px_rgba(0,0,0,0.08)]"
+          ? "bg-background/94 backdrop-blur-xl border-b border-border shadow-[0_12px_36px_rgba(0,0,0,0.08)]"
           : ""
       }`}
     >
@@ -43,29 +46,31 @@ export default function Navbar() {
       )}
 
       <div className="container mx-auto px-6 lg:px-8 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-4 group z-50" aria-label="Neal Foundation home">
+        <Link href="/" className="flex items-center gap-4 group z-50" aria-label="Neal Foundation home">
           <div className="relative flex h-16 w-16 flex-shrink-0 items-center justify-center sm:h-24 sm:w-24">
             <div className="absolute inset-1 rounded-full bg-primary/8 opacity-0 blur-lg transition-opacity duration-500 group-hover:opacity-100" />
             <img
               src="/NealFoundation Logo.png"
               alt="Neal Foundation logo"
               className="relative object-contain drop-shadow-[0_10px_22px_rgba(0,0,0,0.12)]"
-            
             />
           </div>
-
-        </a>
+        </Link>
 
         <div className="hidden md:flex items-center gap-10">
           <ul className="flex items-center gap-8">
             {navLinks.map((link) => (
               <li key={link.label}>
-                <a
+                <Link
                   href={link.href}
-                  className="nav-link-hover text-[12px] font-medium tracking-[0.1em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
+                  className={`nav-link-hover text-[12px] font-medium tracking-[0.1em] uppercase transition-colors duration-300 ${
+                    location === link.href
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -75,10 +80,10 @@ export default function Navbar() {
               asChild
               className="h-9 px-5 text-[11px] font-semibold tracking-[0.1em] uppercase rounded bg-primary hover:bg-primary/90 text-primary-foreground premium-glow transition-all duration-300"
             >
-              <a href="#contact" data-testid="link-book-consultation">
+              <Link href="/contact" data-testid="link-book-consultation">
                 Book Consultation
                 <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              </Link>
             </Button>
           </div>
         </div>
@@ -106,27 +111,31 @@ export default function Navbar() {
             className="absolute top-full left-0 right-0 bg-background/96 backdrop-blur-xl border-b border-border p-8 flex flex-col gap-1 md:hidden shadow-xl"
           >
             {navLinks.map((link, i) => (
-              <motion.a
+              <motion.div
                 key={link.label}
-                href={link.href}
                 initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="text-sm font-medium tracking-[0.1em] uppercase text-muted-foreground hover:text-foreground py-3.5 border-b border-border last:border-0 transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-                data-testid={`link-mobile-${link.label.toLowerCase()}`}
               >
-                {link.label}
-              </motion.a>
+                <Link
+                  href={link.href}
+                  className={`block text-sm font-medium tracking-[0.1em] uppercase py-3.5 border-b border-border transition-colors ${
+                    location === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                  data-testid={`link-mobile-${link.label.toLowerCase()}`}
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
             ))}
             <Button
               asChild
               className="w-full mt-5 rounded-none text-[11px] font-semibold tracking-[0.1em] uppercase h-12 premium-glow"
             >
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/contact">
                 Book Consultation
                 <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              </Link>
             </Button>
           </motion.div>
         )}

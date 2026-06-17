@@ -1,21 +1,24 @@
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    "Sales Outsourcing",
-    "Customer Support",
-    "Lead Generation",
-    "Business Consulting",
-    "BPO Services",
-    "Software Solutions",
+    { label: "Sales Outsourcing", href: "/services" },
+    { label: "Customer Support", href: "/services" },
+    { label: "Lead Generation", href: "/services" },
+    { label: "Business Consulting", href: "/services" },
+    { label: "BPO Services", href: "/services" },
+    { label: "Software Solutions", href: "/services" },
   ];
 
   const quickLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Industries", href: "#industries" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Industries", href: "/industries" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -35,9 +38,7 @@ export default function Footer() {
               />
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-lg leading-tight text-foreground">Neal Foundation</span>
-                <span className="text-[9px] uppercase tracking-[0.2em] text-primary/90 font-semibold">
-                  Powered by 24X7NetConnect
-                </span>
+               
               </div>
             </div>
 
@@ -45,9 +46,7 @@ export default function Footer() {
               Driven by Growth. Powered by Partnership.
             </p>
 
-            <p className="text-xs text-muted-foreground font-serif italic tracking-wide">
-              धर्मो रक्षति रक्षितः
-            </p>
+         
 
             <div className="space-y-2">
               {["United States", "Canada", "Bharat"].map((loc) => (
@@ -63,14 +62,14 @@ export default function Footer() {
             <h4 className="font-sans font-semibold text-[10px] tracking-[0.2em] uppercase text-foreground/45">Services</h4>
             <ul className="space-y-3.5">
               {services.map((s) => (
-                <li key={s}>
-                  <a
-                    href="#services"
+                <li key={s.label}>
+                  <Link
+                    href={s.href}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 font-light"
-                    data-testid={`footer-link-${s.toLowerCase().replace(/ /g, "-")}`}
+                    data-testid={`footer-link-${s.label.toLowerCase().replace(/ /g, "-")}`}
                   >
-                    {s}
-                  </a>
+                    {s.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -81,13 +80,13 @@ export default function Footer() {
             <ul className="space-y-3.5">
               {quickLinks.map((l) => (
                 <li key={l.label}>
-                  <a
+                  <Link
                     href={l.href}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 font-light"
                     data-testid={`footer-nav-${l.label.toLowerCase()}`}
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -110,16 +109,14 @@ export default function Footer() {
 
             <div className="pt-5">
               <p className="text-[10px] uppercase tracking-[0.14em] text-muted-foreground mb-3">Global Operations</p>
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 text-xs text-primary font-semibold tracking-[0.1em] uppercase border-b border-primary/40 pb-0.5 hover:border-primary hover:text-foreground transition-colors duration-300"
                 data-testid="footer-link-contact"
               >
                 Schedule Consultation
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </div>
 

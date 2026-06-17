@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "wouter";
 import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -300,67 +301,106 @@ export default function Home() {
     <div className="w-full overflow-x-hidden">
 
       {/* ─── HERO ─── */}
-      <section
-        id="home"
-        className="relative min-h-screen flex items-end pb-0 pt-28 overflow-hidden bg-background"
-        data-testid="section-hero"
-      >
-        <img
-          src="/hero-bg.png"
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-          aria-hidden="true"
-        />
-      
+    <section
+  id="home"
+  className="relative flex min-h-dvh items-end overflow-hidden bg-background pb-0 pt-32"
+  data-testid="section-hero"
+>
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <img
+      src="/hero-bg.png"
+      alt="Neal Foundation Hero Background"
+      className="h-full w-full object-cover"
+    />
 
-        <div className="container mx-auto px-6 lg:px-8 relative z-10 pb-0">
-          <div className="max-w-6xl pb-20 md:pb-24">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={stagger}
-              className="space-y-9"
-            >
-           
+  </div>
 
-              <motion.h1 variants={fadeUp} className="font-serif font-bold display-hero">
-                <span className="text-foreground block">Your Trusted</span>
-                <span className="text-gradient-brand block">
-                  Growth Partner
-                </span>
-                <span className="text-foreground/62 block font-light italic display-hero-sub mt-2">
-                  in Sales, Technology &amp; Outsourcing
-                </span>
-              </motion.h1>
+  {/* Texture + Glow */}
+  <div className="absolute inset-0 dot-grid-light opacity-25" />
+  <div className="absolute right-0 top-0 h-[660px] w-[660px] rounded-full bg-primary/15 blur-[155px]" />
+  <div className="absolute bottom-0 left-0 h-[430px] w-[430px] rounded-full bg-primary/8 blur-[120px]" />
 
-              <motion.p
-                variants={fadeUp}
-                className="text-base text-muted-foreground leading-8 max-w-2xl font-light"
-              >
-             Neal Foundation delivers enterprise-grade sales outsourcing, customer support, lead generation, and BPO solutions across the United States, Canada, and Bharat — helping businesses scale with reliable, performance-driven operations.
-              </motion.p>
+  {/* Premium Lines */}
+  <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+  <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-primary/25 to-transparent" />
 
-              <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 pt-2">
-                <Button
-                  size="lg"
-                  asChild
-                  className="rounded h-13 px-9 text-[0.84rem] font-bold tracking-[0.08em] uppercase bg-primary hover:bg-primary/90 text-primary-foreground premium-glow transition-all duration-300"
-                  data-testid="button-schedule-consultation"
-                >
-                  <a href="#contact">
-                    Schedule Consultation <ArrowRight className="ml-2 w-4 h-4" />
-                  </a>
-                </Button>
-               
-              </motion.div>
-
-            
-            </motion.div>
-          </div>
+  <div className="container relative z-10 mx-auto px-6 pb-20 md:pb-24 lg:px-8">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={stagger}
+      className="max-w-6xl space-y-8"
+    >
+      {/* Premium Badge */}
+      <motion.div variants={fadeUp}>
+        <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-background/45 px-4 py-2 backdrop-blur-md">
+          <Sparkles className="h-4 w-4 text-primary" />
+          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+            Neal Foundation
+          </span>
         </div>
+      </motion.div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      </section>
+      {/* Heading */}
+      <motion.h1
+        variants={fadeUp}
+        className="font-serif font-bold display-hero text-foreground"
+      >
+        <span className="block">Your Trusted</span>
+
+        <span className="block text-gradient-brand">
+          Growth Partner
+        </span>
+
+    
+      </motion.h1>
+
+      {/* Paragraph */}
+      <motion.p
+        variants={fadeUp}
+        className="max-w-2xl text-base font-light leading-8 text-muted-foreground"
+      >
+        Neal Foundation delivers enterprise-grade sales outsourcing, customer
+        support, lead generation, and BPO solutions across the United States,
+        Canada, and Bharat — helping businesses scale with reliable,
+        performance-driven operations.
+      </motion.p>
+
+      {/* CTA Buttons */}
+      <motion.div
+        variants={fadeUp}
+        className="flex flex-col gap-4 pt-2 sm:flex-row"
+      >
+        <Button
+          size="lg"
+          asChild
+          className="h-[52px] rounded-none bg-primary px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 premium-glow"
+          data-testid="button-schedule-consultation"
+        >
+          <Link href="/contact">
+            Schedule Consultation
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
+
+        <Button
+          size="lg"
+          variant="outline"
+          asChild
+          className="h-[52px] rounded-none border-primary/30 bg-background/35 px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-background/70"
+        >
+          <Link href="/services">
+            Explore Services
+            <ArrowUpRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
+      </motion.div>
+
+ 
+    </motion.div>
+  </div>
+</section>
 
       {/* ─── MARQUEE TICKER ─── */}
       <div className="marquee-gradient overflow-hidden py-4" aria-hidden="true">
@@ -725,13 +765,13 @@ and build sustainable operations for long-term success.
               </div>
 
               <div className="pt-5 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-primary border-b border-primary/35 pb-1 hover:border-primary"
                 >
                   Learn More
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -1294,7 +1334,7 @@ and build sustainable operations for long-term success.
                         </FormLabel>
                         <FormControl>
                           <Input
-                            className="h-11 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-0 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
+                            className="h-11 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-4 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
                             placeholder="John Doe"
                             data-testid="input-name"
                             {...field}
@@ -1315,7 +1355,7 @@ and build sustainable operations for long-term success.
                         </FormLabel>
                         <FormControl>
                           <Input
-                            className="h-11 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-0 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
+                            className="h-11 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-4 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
                             placeholder="Acme Corp"
                             data-testid="input-company"
                             {...field}
@@ -1338,7 +1378,7 @@ and build sustainable operations for long-term success.
                         </FormLabel>
                         <FormControl>
                           <Input
-                            className="h-11 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-0 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
+                            className="h-11 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-4 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
                             type="email"
                             placeholder="john@acme.com"
                             data-testid="input-email"
@@ -1360,7 +1400,7 @@ and build sustainable operations for long-term success.
                         </FormLabel>
                         <FormControl>
                           <Input
-                            className="h-11 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-0 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
+                            className="h-11 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-4 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
                             placeholder="+1 (555) 000-0000"
                             data-testid="input-phone"
                             {...field}
@@ -1386,7 +1426,7 @@ and build sustainable operations for long-term success.
                       >
                         <FormControl>
                           <SelectTrigger
-                            className="h-11 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-0 text-sm transition-colors focus:border-primary focus:ring-0"
+                            className="h-11 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-4 text-sm transition-colors focus:border-primary focus:ring-0"
                             data-testid="select-service"
                           >
                             <SelectValue placeholder="Select a service" />
@@ -1426,7 +1466,7 @@ and build sustainable operations for long-term success.
                       </FormLabel>
                       <FormControl>
                         <Textarea
-                          className="min-h-[96px] resize-none rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-0 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
+                          className="min-h-[96px] resize-none rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-4 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
                           placeholder="Tell us about your goals..."
                           data-testid="textarea-message"
                           {...field}
