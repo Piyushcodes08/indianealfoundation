@@ -294,7 +294,7 @@ and build sustainable operations for long-term success.
         <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/70 p-3 shadow-2xl shadow-black/10 backdrop-blur-xl">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem] bg-muted">
             <img
-              src="/about-right.png"
+              src="/about-right.webp"
               alt="Corporate team at Neal Foundation"
               className="object-cover w-full h-full scale-105 transition-transform duration-700 hover:scale-100"
               data-testid="img-about"
@@ -303,7 +303,7 @@ and build sustainable operations for long-term success.
             {/* Logo Badge */}
             <div className="absolute top-6 right-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/25 bg-background/85 p-2 shadow-xl backdrop-blur-md logo-halo">
               <img
-                src="/NealFoundation Logo.png"
+                src="/NealFoundation Logo.webp"
                 alt="Neal Foundation"
                 className="w-full h-full object-contain"
               />
