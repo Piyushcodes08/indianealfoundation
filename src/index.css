@@ -357,14 +357,14 @@
   }
 
   .display-hero {
-    font-size: 70px;
-    line-height: 0.94;
+    font-size: clamp(2.25rem, 7vw, 4.25rem);
+    line-height: 1.02;
     letter-spacing: 0;
   }
 
   .display-hero-sub {
-    font-size:40px;
-    line-height: 1.04;
+    font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+    line-height: 1.05;
     letter-spacing: 0;
   }
 .dot-grid-light {

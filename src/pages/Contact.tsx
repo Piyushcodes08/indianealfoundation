@@ -100,7 +100,7 @@ export default function Contact() {
 
             <motion.h1
               variants={fadeUp}
-              className="font-serif font-bold display-hero text-foreground w-2/3"
+              className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
             >
               Let&apos;s Connect With Our {" "}
               <span className="text-gradient-brand">Growth Team</span>

@@ -94,7 +94,7 @@ export default function Home() {
       {/* Heading */}
       <motion.h1
         variants={fadeUp}
-        className="font-serif font-bold display-hero text-foreground"
+        className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
       >
         <span className="block">Your Trusted</span>
 
@@ -102,7 +102,6 @@ export default function Home() {
           Growth Partner
         </span>
 
-    
       </motion.h1>
 
       {/* Paragraph */}

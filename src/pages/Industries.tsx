@@ -60,7 +60,7 @@ export default function Industries() {
 
             <motion.h1
               variants={fadeUp}
-              className="font-serif font-bold display-hero text-foreground"
+              className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
             >
               Industries{" "}
               <span className="text-gradient-brand">We Serve</span>

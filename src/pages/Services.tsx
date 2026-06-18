@@ -55,7 +55,7 @@ export default function Services() {
 
             <motion.h1
               variants={fadeUp}
-              className="font-serif font-bold display-hero text-foreground w-2/3"
+              className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
             >
               Scalable Services for{" "}
               <span className="text-gradient-brand">Business Growth</span>
