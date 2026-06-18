@@ -34,12 +34,9 @@ export default function Footer() {
               <img
                 src="/NealFoundation Logo.png"
                 alt="Neal Foundation logo"
-                className="h-12 w-12 object-contain flex-shrink-0"
+                className="h-24 w-24 object-contain flex-shrink-0"
               />
-              <div className="flex flex-col">
-                <span className="font-serif font-bold text-lg leading-tight text-foreground">Neal Foundation</span>
-               
-              </div>
+           
             </div>
 
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs font-light">

@@ -130,7 +130,7 @@ export default function Navbar() {
             ))}
             <Button
               asChild
-              className="w-full mt-5 rounded-none text-[11px] font-semibold tracking-[0.1em] uppercase h-12 premium-glow"
+              className="w-full mt-5 rounded-md text-[11px] font-semibold tracking-[0.1em] uppercase h-12 premium-glow"
             >
               <Link href="/contact">
                 Book Consultation

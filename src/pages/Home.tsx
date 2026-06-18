@@ -1,135 +1,30 @@
-import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  Building2,
-  PhoneCall,
-  Code2,
-  LineChart,
-  Users,
-  HeartHandshake,
-  Globe,
-  CheckCircle2,
-  MapPin,
-  Mail,
-
-  ArrowUpRight,
- 
-  Users2,
-  TrendingUp,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ArrowRight, ArrowUpRight, CheckCircle2, Sparkles, Users2, ShieldCheck, Network, TrendingUp, Building2, Wifi, Globe, Mail, HeartHandshake, LineChart, Users, PhoneCall, Code2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useToast } from "@/hooks/use-toast";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-const stagger = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
-};
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex items-center gap-3">
-      <span className="flex items-center gap-1.5">
-        <span className="w-1.5 h-1.5 rotate-45 bg-primary" />
-        <span className="w-10 h-px bg-gradient-to-r from-primary to-primary/15" />
-      </span>
-      <span className="text-[0.68rem] font-bold tracking-[0.22em] uppercase text-primary">
-        {children}
-      </span>
-    </div>
-  );
-}
-
-function AnimatedCounter({
-  value,
-  label,
-  suffix = "",
-  prefix = "",
-}: {
-  value: number;
-  label: string;
-  suffix?: string;
-  prefix?: string;
-}) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
-  useEffect(() => {
-    if (!isInView) return;
-    let start = 0;
-    const duration = 1800;
-    const steps = 60;
-    const increment = value / steps;
-    const interval = duration / steps;
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= value) {
-        setCount(value);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, interval);
-    return () => clearInterval(timer);
-  }, [value, isInView]);
-
-  return (
-    <div ref={ref} className="text-center" data-testid={`stat-${label.toLowerCase().replace(/ /g, "-")}`}>
-      <div className="text-5xl lg:text-6xl font-serif font-bold text-primary mb-3 tabular-nums leading-none">
-        {prefix}{count}{suffix}
-      </div>
-      <div className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-        {label}
-      </div>
-    </div>
-  );
-}
-
-const contactSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  companyName: z.string().min(2, "Company name is required"),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().min(5, "Phone is required"),
-  serviceRequired: z.string().min(1, "Please select a service"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
+import { fadeUp, stagger } from "@/lib/animations";
+import { AnimatedCounter, SectionLabel } from "@/components/shared";
+import { contactSchema, type ContactFormValues } from "@/data/contact";
+import {
+  homeServices,
+  parentCompanyPoints,
+  nealDivisionPoints,
+  homeValues,
+  coPartnerHighlights,
+  testimonials,
+  marqueeItems,
+} from "@/data/home";
 
 export default function Home() {
   const { toast } = useToast();
-  const form = useForm<z.infer<typeof contactSchema>>({
+  const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
       name: "",
@@ -141,7 +36,7 @@ export default function Home() {
     },
   });
 
-  const onSubmit = (_values: z.infer<typeof contactSchema>) => {
+  const onSubmit = (_values: ContactFormValues) => {
     toast({
       title: "Consultation Request Received",
       description: "A representative will contact you within 24 hours.",
@@ -149,153 +44,7 @@ export default function Home() {
     form.reset();
   };
 
-  const services = [
-    {
-      num: "01",
-      title: "Sales Outsourcing",
-      icon: <LineChart className="w-5 h-5" />,
-      desc: "End-to-end outbound and inbound sales programs that fill your pipeline and close revenue.",
-      features: [
-        "Outbound Sales Campaigns",
-        "Inbound Sales Support",
-        "Telecom Sales",
-        "Customer Acquisition",
-        "Cross-Selling & Upselling",
-        "Lead Qualification",
-      ],
-    },
-    {
-      num: "02",
-      title: "Customer Service",
-      icon: <HeartHandshake className="w-5 h-5" />,
-      desc: "24/7 multi-channel support operations that retain customers and build loyalty.",
-      features: [
-        "Inbound Customer Support",
-        "Email & Chat Support",
-        "Technical Support",
-        "Billing Support",
-        "Retention Programs",
-        "Loyalty Management",
-      ],
-    },
-    {
-      num: "03",
-      title: "Lead Generation",
-      icon: <Users className="w-5 h-5" />,
-      desc: "Data-driven B2B and B2C lead generation programs built for consistent pipeline growth.",
-      features: [
-        "B2B & B2C Generation",
-        "Appointment Setting",
-        "Data Research & Validation",
-        "Prospect Qualification",
-        "Market Research",
-        "Pipeline Building",
-      ],
-    },
-    {
-      num: "04",
-      title: "BPO Services",
-      icon: <PhoneCall className="w-5 h-5" />,
-      desc: "Full-scale call center and back-office operations designed for efficiency and scale.",
-      features: [
-        "Call Center Operations",
-        "CRM Management",
-        "Back Office Support",
-        "Order Processing",
-        "Administrative Support",
-        "Reporting & Analytics",
-      ],
-    },
-    {
-      num: "05",
-      title: "Growth Consulting",
-      icon: <Building2 className="w-5 h-5" />,
-      desc: "Strategic advisory and execution support to build and scale business operations from the ground up.",
-      features: [
-        "Office Setup Planning",
-        "Team Structure Design",
-        "Recruitment & Training",
-        "KPI Development",
-        "Performance Systems",
-        "Growth & Expansion Planning",
-      ],
-    },
-    {
-      num: "06",
-      title: "Software Solutions",
-      icon: <Code2 className="w-5 h-5" />,
-      desc: "Custom digital tools, ERP systems, and automation that accelerate your operational efficiency.",
-      features: [
-        "Website Development",
-        "Business Applications",
-        "Custom ERP Solutions",
-        "CRM Integration",
-        "Automation Tools",
-        "Process Optimization",
-      ],
-    },
-  ];
-
-  const values = [
-    { title: "Integrity", desc: "Honesty, transparency, and accountability in every interaction." },
-    { title: "Excellence", desc: "Delivering quality services and relentlessly improving operations." },
-    { title: "Innovation", desc: "Practical solutions that help businesses adapt and grow." },
-    { title: "Partnership", desc: "Working alongside clients as an extension of their organization." },
-    { title: "Commitment", desc: "Supporting partners through every stage of growth." },
-  ];
-
-  const coPartnerHighlights = [
-    {
-      title: "Operational Delivery",
-      desc: "Execution support for sales, support, BPO, and lead generation programs.",
-    },
-    {
-      title: "Shared Growth Systems",
-      desc: "Process design, reporting discipline, and scalable team structures for client expansion.",
-    },
-    {
-      title: "Global Coverage",
-      desc: "Coordinated service capability across the United States, Canada, and India.",
-    },
-  ];
-
-  const testimonials = [
-    {
-      quote:
-        "Partnering with Neal Foundation transformed our customer acquisition strategy. Their team integrated seamlessly with our operations and scaled our outbound campaigns — resulting in a 40% increase in qualified leads within the first quarter.",
-      author: "Sarah Jenkins",
-      role: "VP of Sales",
-      company: "TechFlow Solutions",
-      initials: "SJ",
-    },
-    {
-      quote:
-        "The operational excellence 24X7NetConnect brings is unmatched. They didn't just fill seats — they audited our processes, rebuilt our training protocols, and established a 24/7 support center that elevated our customer satisfaction scores significantly.",
-      author: "Michael Chang",
-      role: "Chief Operating Officer",
-      company: "Global Telecom Connect",
-      initials: "MC",
-    },
-    {
-      quote:
-        "As a rapidly expanding software firm, we needed a scalable growth model. Neal Foundation provided the strategic consulting and talent we needed. They truly act as an extension of our own organization — every step of the way.",
-      author: "David Alvarez",
-      role: "Founder",
-      company: "Enterprise SaaS Group",
-      initials: "DA",
-    },
-  ];
-
-  const marqueeItems = [
-    "Sales Outsourcing",
-    "Customer Support",
-    "Lead Generation",
-    "Business Consulting",
-    "BPO Services",
-    "Software Solutions",
-    "Growth Partnerships",
-    "Operational Excellence",
-  ];
+  const services = homeServices;
 
   return (
     <div className="w-full overflow-x-hidden">
@@ -375,7 +124,7 @@ export default function Home() {
         <Button
           size="lg"
           asChild
-          className="h-[52px] rounded-none bg-primary px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 premium-glow"
+          className="h-[52px] rounded-md bg-primary px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 premium-glow"
           data-testid="button-schedule-consultation"
         >
           <Link href="/contact">
@@ -388,7 +137,7 @@ export default function Home() {
           size="lg"
           variant="outline"
           asChild
-          className="h-[52px] rounded-none border-primary/30 bg-background/35 px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-background/70"
+          className="h-[52px] rounded-md border-primary/30 bg-background/35 px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-background/70"
         >
           <Link href="/services">
             Explore Services
@@ -406,7 +155,7 @@ export default function Home() {
       <div className="marquee-gradient overflow-hidden py-4" aria-hidden="true">
         <div className="marquee-track select-none">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className="flex items-center gap-5 text-[10px] font-semibold tracking-[0.2em] uppercase text-cream/90 px-8">
+            <span key={i} className="flex items-center gap-5 text-[10px] font-semibold tracking-[0.2em] uppercase text-white px-8">
               {item}
               <span className="w-1 h-1 rotate-45 bg-cream/50 flex-shrink-0" />
             </span>
@@ -558,29 +307,7 @@ and build sustainable operations for long-term success.
                 alt="Neal Foundation"
                 className="w-full h-full object-contain"
               />
-            </div>
-
-            {/* Bottom Content Card */}
-            {/* <div className="absolute bottom-6 left-6 right-6">
-              <div className="rounded-2xl border border-white/10 bg-background/80 p-6 backdrop-blur-xl shadow-2xl">
-                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
-                    Operational Engine
-                  </span>
-                </div>
-
-                <p className="font-serif font-bold text-2xl text-foreground mb-2">
-                 Neal Foundation
-                </p>
-
-                <p className="text-muted-foreground text-sm font-light leading-relaxed">
-                  Delivering global sales, support, consulting, lead generation,
-                  software, and BPO excellence through structured operational
-                  systems.
-                </p>
-              </div>
-            </div> */}
+            </div>      
           </div>
         </div>
       </motion.div>
@@ -948,6 +675,215 @@ and build sustainable operations for long-term success.
     </div>
   </div>
 </section>
+{/* 24X7 connect section  */}
+
+<section
+  id="business-ecosystem"
+  className="relative overflow-hidden bg-background py-28 lg:py-32"
+  data-testid="section-business-ecosystem"
+>
+  {/* Premium Background */}
+  <div className="absolute inset-0 dot-grid-light opacity-35" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(220,38,38,0.06),transparent_36%),radial-gradient(circle_at_bottom_left,rgba(220,38,38,0.035),transparent_34%)]" />
+
+  {/* Luxury Lines */}
+  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+  <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+  <div className="container relative z-10 mx-auto px-6 lg:px-8">
+    <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-20">
+      {/* Left Content */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={stagger}
+        className="lg:col-span-6"
+      >
+        <motion.div variants={fadeUp} className="mb-6">
+          <SectionLabel>Our Business Ecosystem</SectionLabel>
+        </motion.div>
+
+        <motion.h2
+          variants={fadeUp}
+          className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl"
+        >
+          Find the Best Internet Provider in Your Area {''}
+          <em className="not-italic text-primary">24X7NetConnect</em>
+        </motion.h2>
+
+        <motion.p
+          variants={fadeUp}
+          className="mt-7 max-w-xl text-base font-light leading-relaxed text-muted-foreground"
+        >
+          24X7NetConnect is the parent business platform focused on helping
+          residential and business customers search, compare, and connect with
+          reliable internet service providers available in their area.
+        </motion.p>
+
+        <motion.p
+          variants={fadeUp}
+          className="mt-5 max-w-xl text-base font-light leading-relaxed text-muted-foreground"
+        >
+          Under this broader business ecosystem, Neal Foundation operates as
+          the business growth, outsourcing, customer support, lead generation,
+          consulting, and operational solutions division.
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp}
+          className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2"
+        >
+          {parentCompanyPoints.map((item) => (
+            <div
+              key={item}
+              className="group flex items-start gap-3 text-sm font-light leading-relaxed text-muted-foreground transition-colors duration-300 hover:text-foreground"
+            >
+              <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+              {item}
+            </div>
+          ))}
+        </motion.div>
+
+        <motion.div variants={fadeUp} className="mt-10 flex flex-wrap gap-4">
+          <a
+            href="https://www.nealfoundation.com"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-7 text-xs font-bold uppercase tracking-[0.14em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 premium-glow"
+          >
+            Visit Website
+            <ArrowUpRight className="ml-2 h-4 w-4" />
+          </a>
+
+          <a
+            href="#contact"
+            className="inline-flex h-12 items-center justify-center rounded-md border border-primary/25 bg-card/50 px-7 text-xs font-bold uppercase tracking-[0.14em] text-primary backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-primary/5"
+          >
+            Connect With Us
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </a>
+        </motion.div>
+      </motion.div>
+
+      {/* Right Premium Structure Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="lg:col-span-6"
+      >
+        <div className="premium-surface relative overflow-hidden border border-border/80 bg-card/90 shadow-[0_32px_90px_rgba(0,0,0,0.12)] backdrop-blur-sm">
+          {/* Glow Effects */}
+          <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary/[0.08] blur-[90px]" />
+          <div className="absolute -bottom-28 -left-24 h-72 w-72 rounded-full bg-primary/[0.045] blur-[90px]" />
+
+          {/* Accent Line */}
+          <div className="absolute left-0 right-0 top-0 h-[2px] bg-gradient-to-r from-primary via-primary/60 to-transparent" />
+
+          {/* Watermark */}
+          <span className="absolute right-8 top-8 font-serif text-8xl font-bold leading-none text-primary/[0.045]">
+            24
+          </span>
+
+          <div className="relative z-10 p-8 md:p-10 lg:p-12">
+            {/* Logo Box */}
+            <div className="mb-8 overflow-hidden border border-primary/20 bg-black p-6 shadow-[0_20px_60px_rgba(0,0,0,0.16)]">
+              <div className="flex items-center justify-between gap-6">
+                <img
+                  src="/24x7netconnect-logo.png"
+                  alt="24X7NetConnect Logo"
+                  className="h-20 w-auto max-w-[260px] object-contain"
+                />
+
+                <div className="hidden h-12 w-12 items-center justify-center border border-[#f26a21]/40 bg-[#f26a21]/10 text-[#f26a21] md:flex">
+                  <Network className="h-5 w-5" />
+                </div>
+              </div>
+            </div>
+
+            {/* Parent Company Card */}
+            <div className="relative overflow-hidden border border-primary/20 bg-background p-6">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.08] via-transparent to-transparent" />
+
+              <div className="relative z-10 flex items-start gap-5">
+                <div className="flex h-13 w-13 items-center justify-center border border-primary/30 bg-primary/10 text-primary px-2">
+                  <Wifi className="h-5 w-5" />
+                </div>
+
+                <div>
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.22em] text-primary">
+                    Parent Company
+                  </p>
+
+                  <h3 className="font-serif text-2xl font-bold text-foreground">
+                    24X7NetConnect
+                  </h3>
+
+                  <p className="mt-3 text-sm font-light leading-relaxed text-muted-foreground">
+                    A smart internet service comparison company helping users
+                    find providers, compare plans, check availability, and
+                    connect with the best internet options by location.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Connector Line */}
+            <div className="mx-auto flex w-px flex-col items-center py-5">
+              <div className="h-10 w-px bg-gradient-to-b from-primary/60 to-border" />
+              <div className="h-2 w-2 rotate-45 bg-primary shadow-[0_0_18px_rgba(220,38,38,0.45)]" />
+              <div className="h-10 w-px bg-gradient-to-b from-border to-primary/40" />
+            </div>
+
+            {/* Neal Foundation Division */}
+            <div className="relative overflow-hidden border border-border/80 bg-muted p-6 transition-all duration-500 hover:border-primary/30">
+              <div className="absolute left-0 top-0 h-full w-[2px] bg-primary" />
+
+              <div className="relative z-10 flex items-start gap-5">
+                <div className="flex h-13 w-13 items-center justify-center px-2 border border-primary/25 bg-background text-primary">
+                  <Building2 className="h-5 w-5" />
+                </div>
+
+                <div>
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
+                    Business Division
+                  </p>
+
+                  <h3 className="font-serif text-2xl font-bold text-foreground">
+                    Neal Foundation
+                  </h3>
+
+                  <p className="mt-3 text-sm font-light leading-relaxed text-muted-foreground">
+                    The business growth and outsourcing division supporting
+                    companies with sales, customer service, BPO, consulting,
+                    software, and operational solutions.
+                  </p>
+
+                  <a
+                    href="https://www.nealfoundation.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-primary transition-all duration-300 hover:gap-3"
+                  >
+                    www.nealfoundation.com
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+          
+          </div>
+
+          <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* ─── VALUES & INDUSTRIES ─── */}
      <section
@@ -981,7 +917,7 @@ and build sustainable operations for long-term success.
         </div>
 
         <div className="relative border-y border-border/70">
-          {values.map((val, i) => (
+          {homeValues.map((val, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 14 }}
@@ -1134,76 +1070,92 @@ and build sustainable operations for long-term success.
 
     {/* Premium Testimonial Grid */}
     <div className="relative">
-      <div className="absolute -inset-px bg-gradient-to-br from-primary/22 via-border to-primary/10" />
+  {/* Outer Premium Border */}
+  <div className="absolute -inset-px bg-gradient-to-br from-primary/30 via-border to-primary/10" />
 
-      <div className="relative grid grid-cols-1 gap-px bg-border/70 md:grid-cols-3">
-        {testimonials.map((t, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{
-              delay: i * 0.12,
-              duration: 0.65,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="group relative flex min-h-[360px] flex-col overflow-hidden bg-card p-8 transition-all duration-500 hover:z-10 hover:bg-background hover:shadow-[0_24px_65px_rgba(0,0,0,0.12)] lg:p-10"
-            data-testid={`card-testimonial-${i}`}
-          >
-            {/* Top Hover Line */}
-            <div className="absolute left-0 top-0 h-[2px] w-full origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" />
+  {/* Subtle Glow */}
+  <div className="absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[90px]" />
 
-            {/* Soft Hover Glow */}
-            <div className="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-primary/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+  <div className="relative grid grid-cols-1 gap-px bg-border/70 md:grid-cols-3">
+    {testimonials.map((t, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{
+          delay: i * 0.12,
+          duration: 0.65,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="group relative flex min-h-[340px] flex-col overflow-hidden bg-card p-7 transition-all duration-500 hover:z-10 hover:bg-background hover:shadow-[0_28px_75px_rgba(0,0,0,0.14)] lg:p-9"
+        data-testid={`card-testimonial-${i}`}
+      >
+        {/* Top Accent Line */}
+        <div className="absolute left-0 top-0 h-[2px] w-full origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" />
 
-            {/* Large Quote Watermark */}
-            <div className="absolute right-7 top-5 select-none font-serif text-8xl font-bold leading-none text-primary/[0.045] transition-all duration-500 group-hover:scale-105 group-hover:text-primary/[0.09]">
-              “
+        {/* Left Accent Line */}
+        <div className="absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-primary/80 transition-transform duration-500 group-hover:scale-y-100" />
+
+        {/* Hover Glow */}
+        <div className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-primary/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+
+        {/* Quote Watermark */}
+        <div className="absolute right-6 top-4 select-none font-serif text-9xl font-bold leading-none text-primary/[0.04] transition-all duration-500 group-hover:scale-105 group-hover:text-primary/[0.085]">
+          “
+        </div>
+
+        {/* Card Number */}
+        <span className="absolute bottom-6 right-7 font-serif text-5xl font-bold leading-none text-primary/[0.035] transition-colors duration-500 group-hover:text-primary/[0.08]">
+          0{i + 1}
+        </span>
+
+        <div className="relative z-10 flex h-full flex-col">
+          {/* Top Row */}
+          <div className="mb-7 flex items-center justify-between">
+            <div className="flex h-11 w-11 items-center justify-center border border-primary/25 bg-background text-primary transition-all duration-500 group-hover:border-primary group-hover:bg-primary group-hover:text-white group-hover:shadow-[0_16px_40px_rgba(220,38,38,0.22)]">
+              <span className="font-serif text-3xl leading-none">“</span>
             </div>
 
-            <div className="relative z-10 flex h-full flex-col">
-              <div className="mb-8 flex items-center justify-between">
-                <div className="flex h-10 w-10 items-center justify-center border border-primary/25 bg-background text-primary transition-all duration-500 group-hover:border-primary group-hover:bg-primary group-hover:text-white group-hover:shadow-[0_14px_35px_rgba(220,38,38,0.20)]">
-                  <span className="font-serif text-2xl leading-none">“</span>
-                </div>
+            <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground/55 transition-colors duration-500 group-hover:text-primary">
+              Client Success
+            </span>
+          </div>
 
-                <span className="font-serif text-xs tracking-[0.24em] text-muted-foreground/50 transition-colors duration-500 group-hover:text-primary">
-                  0{i + 1}
-                </span>
-              </div>
+          {/* Quote */}
+          <p className="flex-1 text-[15px] font-light italic leading-8 text-muted-foreground transition-colors duration-500 group-hover:text-foreground/80">
+            {t.quote}
+          </p>
 
-              <p className="flex-1 text-base font-light italic leading-relaxed text-muted-foreground transition-colors duration-500 group-hover:text-foreground/75">
-                {t.quote}
+          {/* Divider */}
+          <div className="my-8 h-px w-full bg-gradient-to-r from-primary/35 via-border to-transparent" />
+
+          {/* Author */}
+          <div className="flex items-center gap-4">
+            <div className="relative flex h-12 w-12 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-primary/25 bg-primary/[0.07] transition-all duration-500 group-hover:border-primary group-hover:bg-primary group-hover:shadow-[0_14px_35px_rgba(220,38,38,0.20)]">
+              <span className="text-xs font-bold text-primary transition-colors duration-500 group-hover:text-white">
+                {t.initials}
+              </span>
+            </div>
+
+            <div className="min-w-0">
+              <p className="font-serif text-base font-bold leading-tight text-foreground transition-colors duration-500 group-hover:text-primary">
+                {t.author}
               </p>
 
-              <div className="my-8 h-px w-full bg-gradient-to-r from-primary/25 via-border to-transparent" />
-
-              <div className="flex items-center gap-4">
-                <div className="relative flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-primary/25 bg-primary/[0.07] transition-all duration-500 group-hover:border-primary group-hover:bg-primary">
-                  <span className="text-xs font-bold text-primary transition-colors duration-500 group-hover:text-white">
-                    {t.initials}
-                  </span>
-                </div>
-
-                <div>
-                  <p className="font-serif text-sm font-bold text-foreground transition-colors duration-500 group-hover:text-primary">
-                    {t.author}
-                  </p>
-
-                  <p className="mt-0.5 text-xs font-medium leading-relaxed text-primary/80">
-                    {t.role}, {t.company}
-                  </p>
-                </div>
-              </div>
+              <p className="mt-1 text-xs font-medium leading-relaxed text-primary/80">
+                {t.role}, {t.company}
+              </p>
             </div>
+          </div>
+        </div>
 
-            {/* Bottom Hover Line */}
-            <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-          </motion.div>
-        ))}
-      </div>
-    </div>
+        {/* Bottom Shine */}
+        <div className="absolute bottom-0 left-7 right-7 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      </motion.div>
+    ))}
+  </div>
+</div>
   </div>
 </section>
 
@@ -1481,7 +1433,7 @@ and build sustainable operations for long-term success.
                   <Button
                     type="submit"
                     size="lg"
-                    className="group h-12 w-full rounded-none text-sm font-semibold uppercase tracking-[0.14em] premium-glow"
+                    className="group h-12 w-full rounded-md text-sm font-semibold uppercase tracking-[0.14em] premium-glow"
                     data-testid="button-submit-consultation"
                   >
                     Book a Consultation

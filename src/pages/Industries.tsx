@@ -7,163 +7,16 @@ import {
   PhoneCall,
   Code2,
   Briefcase,
+  CheckCircle2,
   Users,
   Building,
   Rocket,
   Store,
-  CheckCircle2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-const stagger = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12 },
-  },
-};
-
-function SectionLabel({ children }: { children: ReactNode }) {
-  return (
-    <div className="flex items-center gap-3">
-      <span className="flex items-center gap-1.5">
-        <span className="h-1.5 w-1.5 rotate-45 bg-primary" />
-        <span className="h-px w-10 bg-gradient-to-r from-primary to-primary/15" />
-      </span>
-
-      <span className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-primary">
-        {children}
-      </span>
-    </div>
-  );
-}
-
-const industries = [
-  {
-    num: "01",
-    title: "Telecommunications",
-    icon: <PhoneCall className="h-5 w-5" />,
-    desc: "We power telecom sales campaigns, customer retention programs, and technical support centers that deliver consistent subscriber growth.",
-    solutions: [
-      "Outbound Sales Campaigns",
-      "Customer Retention",
-      "Technical Support",
-      "Billing Support",
-      "Plan Upgrade Programs",
-    ],
-  },
-  {
-    num: "02",
-    title: "Technology Services",
-    icon: <Code2 className="h-5 w-5" />,
-    desc: "Enabling tech companies to scale operations with dedicated sales teams, SaaS support desks, and lead generation programs built for rapid growth.",
-    solutions: [
-      "SaaS Sales Programs",
-      "Technical Helpdesk",
-      "Onboarding Support",
-      "B2B Lead Generation",
-      "Account Management",
-    ],
-  },
-  {
-    num: "03",
-    title: "Professional Services",
-    icon: <Briefcase className="h-5 w-5" />,
-    desc: "Helping consultancies, legal, financial, and advisory firms generate qualified leads and deliver exceptional client service at scale.",
-    solutions: [
-      "Appointment Setting",
-      "Client Intake Support",
-      "Lead Qualification",
-      "Follow-Up Programs",
-      "CRM Management",
-    ],
-  },
-  {
-    num: "04",
-    title: "Customer Support Operations",
-    icon: <Users className="h-5 w-5" />,
-    desc: "Building and managing 24/7 omnichannel support centers that handle high call volumes while maintaining quality benchmarks.",
-    solutions: [
-      "Inbound Call Centers",
-      "Email & Chat Support",
-      "Quality Assurance",
-      "Performance Reporting",
-      "Escalation Management",
-    ],
-  },
-  {
-    num: "05",
-    title: "Small & Medium Businesses",
-    icon: <Store className="h-5 w-5" />,
-    desc: "Providing SMBs with enterprise-grade sales and support capabilities — without the enterprise price tag.",
-    solutions: [
-      "Affordable Sales Programs",
-      "Part-Time Support Teams",
-      "Growth Consulting",
-      "Process Design",
-      "CRM Integration",
-    ],
-  },
-  {
-    num: "06",
-    title: "Startups & Entrepreneurs",
-    icon: <Rocket className="h-5 w-5" />,
-    desc: "Helping early-stage ventures build sales engines, secure their first clients, and establish operational foundations for scale.",
-    solutions: [
-      "Go-to-Market Strategy",
-      "First Sales Programs",
-      "Operational Blueprints",
-      "Team Recruitment",
-      "KPI Development",
-    ],
-  },
-  {
-    num: "07",
-    title: "Software Solutions",
-    icon: <Building className="h-5 w-5" />,
-    desc: "Custom software, ERP systems, and automation platforms designed specifically for operational and sales workflows.",
-    solutions: [
-      "Custom Development",
-      "ERP Implementation",
-      "CRM Integration",
-      "Workflow Automation",
-      "Process Optimization",
-    ],
-  },
-];
-
-const approachSteps = [
-  {
-    n: "01",
-    title: "Industry Audit",
-    desc: "We assess your current operations, competitive position, and growth opportunities.",
-  },
-  {
-    n: "02",
-    title: "Custom Blueprint",
-    desc: "A tailored program is designed specifically for your sector and business goals.",
-  },
-  {
-    n: "03",
-    title: "Seamless Integration",
-    desc: "Our teams deploy and integrate with your existing workflows without disruption.",
-  },
-];
-
-const countries = [
-  "United States — Enterprise & SMB Markets",
-  "Canada — BPO & Support Programs",
-  "Bharat — Technology & 24/7 Operations",
-];
+import { fadeUp, stagger } from "@/lib/animations";
+import { SectionLabel } from "@/components/shared";
+import { industriesData, approachSteps, countries } from "@/data/industries";
 
 export default function Industries() {
   return (
@@ -229,7 +82,7 @@ export default function Industries() {
               <Button
                 size="lg"
                 asChild
-                className="h-[52px] rounded-none bg-primary px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 premium-glow"
+                className="h-[52px] rounded-md bg-primary px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 premium-glow"
               >
                 <Link href="/contact">
                   Discuss Your Sector
@@ -241,7 +94,7 @@ export default function Industries() {
                 size="lg"
                 variant="outline"
                 asChild
-                className="h-[52px] rounded-none border-primary/30 bg-background/35 px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-background/70"
+                className="h-[52px] rounded-md border-primary/30 bg-background/35 px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-background/70"
               >
                 <a href="#industries-grid">
                   View Industries
@@ -299,7 +152,7 @@ export default function Industries() {
             <div className="absolute -inset-px bg-gradient-to-br from-primary/25 via-border to-primary/10" />
 
             <div className="relative grid grid-cols-1 gap-px bg-border/70 md:grid-cols-2 lg:grid-cols-3">
-              {industries.map((ind, i) => (
+              {industriesData.map((ind, i) => (
                 <motion.div
                   key={ind.title}
                   initial={{ opacity: 0, y: 24 }}
@@ -478,7 +331,7 @@ export default function Industries() {
                   <div className="pt-3">
                     <Button
                       asChild
-                      className="h-12 w-full rounded-none bg-primary text-[0.82rem] font-bold uppercase tracking-[0.08em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 premium-glow"
+                      className="h-12 w-full rounded-md bg-primary text-[0.82rem] font-bold uppercase tracking-[0.08em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 premium-glow"
                     >
                       <Link href="/contact">
                         Start a Conversation

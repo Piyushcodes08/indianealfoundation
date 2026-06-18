@@ -2,216 +2,115 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import {
   ArrowRight,
-  Users2,
-  ShieldCheck,
-  TrendingUp,
-  Building2,
+  Search,
+  BarChart3,
+  Zap,
+  MapPin,
   Globe,
   Sparkles,
   Target,
   Eye,
-  HeartHandshake,
-  Award,
   CheckCircle2,
+  Wifi,
+  Gauge,
+  DollarSign,
   Layers3,
+  TrendingUp,
+  Building2,
+  ShieldCheck,
+  Clock,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { ReactNode } from "react";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-const stagger = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12 },
-  },
-};
-
-function SectionLabel({ children }: { children: ReactNode }) {
-  return (
-    <div className="flex items-center gap-3">
-      <span className="flex items-center gap-1.5">
-        <span className="h-1.5 w-1.5 rotate-45 bg-primary" />
-        <span className="h-px w-10 bg-gradient-to-r from-primary to-primary/15" />
-      </span>
-
-      <span className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-primary">
-        {children}
-      </span>
-    </div>
-  );
-}
-
-const stats = [
-  { value: "100+", label: "Business Projects" },
-  { value: "50+", label: "Team Members" },
-  { value: "3", label: "Countries Served" },
-  { value: "24/7", label: "Support Operations" },
-];
-
-const values = [
-  {
-    title: "Integrity",
-    desc: "We operate with honesty, transparency, and accountability in every partnership.",
-  },
-  {
-    title: "Excellence",
-    desc: "We focus on quality execution, continuous improvement, and reliable delivery.",
-  },
-  {
-    title: "Innovation",
-    desc: "We build practical solutions that help businesses adapt, scale, and compete.",
-  },
-  {
-    title: "Partnership",
-    desc: "We work as an extension of our clients’ organizations, not just as a service provider.",
-  },
-  {
-    title: "Commitment",
-    desc: "We support long-term growth with dependable systems, teams, and processes.",
-  },
-];
-
-const capabilities = [
-  {
-    icon: Users2,
-    title: "People",
-    desc: "Recruiting, training, managing, and developing performance-driven teams.",
-  },
-  {
-    icon: Layers3,
-    title: "Process",
-    desc: "Creating structured workflows that improve speed, consistency, and accountability.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Growth",
-    desc: "Helping businesses increase revenue opportunities and strengthen customer outcomes.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Reliability",
-    desc: "Supporting day-to-day operations with disciplined execution and quality control.",
-  },
-];
-
-const timeline = [
-  {
-    n: "01",
-    title: "Understand the Business",
-    desc: "We begin by understanding your goals, current challenges, team structure, and operational needs.",
-  },
-  {
-    n: "02",
-    title: "Design the System",
-    desc: "We create a scalable operating model with clear processes, roles, reporting, and performance standards.",
-  },
-  {
-    n: "03",
-    title: "Build the Team",
-    desc: "We support recruitment, training, onboarding, and team development based on your business requirements.",
-  },
-  {
-    n: "04",
-    title: "Optimize for Growth",
-    desc: "We continuously improve performance, strengthen operations, and align delivery with long-term success.",
-  },
-];
+import { fadeUp, stagger } from "@/lib/animations";
+import { SectionLabel } from "@/components/shared";
+import {
+  stats,
+  coreValues,
+  capabilities,
+  howItWorks,
+  internetServices,
+  whyChoose,
+} from "@/data/about";
 
 export default function About() {
   return (
     <div className="w-full overflow-x-hidden bg-background">
       {/* HERO */}
-     {/* HERO WITH BACKGROUND IMAGE */}
-<section className="relative flex min-h-[78vh] items-end overflow-hidden bg-background pb-20 pt-36">
-  {/* Background Image */}
-  <div className="absolute inset-0">
-    <img
-      src="/about-hero-bg.png"
-      alt="Neal Foundation About Hero Background"
-      className="h-full w-full object-cover"
-    />
-
-
-
-  </div>
-
-  {/* Texture + Glow */}
-  <div className="absolute inset-0 dot-grid-light opacity-25" />
-  <div className="absolute right-0 top-0 h-[620px] w-[620px] rounded-full bg-primary/15 blur-[150px]" />
-  <div className="absolute bottom-0 left-0 h-[420px] w-[420px] rounded-full bg-primary/8 blur-[120px]" />
-
-  {/* Luxury Lines */}
-  <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
-  <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
-
-  <div className="container relative z-10 mx-auto px-6 lg:px-8">
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={stagger}
-      className="max-w-5xl space-y-7"
-    >
-      <motion.div variants={fadeUp}>
-        <div className="inline-flex items-center gap-2 border border-primary/25 bg-background/45 px-4 py-2 backdrop-blur-md">
-          <Sparkles className="h-4 w-4 text-primary" />
-          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            About Neal Foundation
-          </span>
+      <section className="relative flex min-h-[100vh] items-end overflow-hidden bg-background pb-20 pt-36">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/about-hero-bg.png"
+            alt="24X7NetConnect About Hero Background"
+            className="h-full w-full object-cover"
+          />
         </div>
-      </motion.div>
 
-      <motion.h1
-        variants={fadeUp}
-        className="font-serif text-5xl font-bold leading-[1.02] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
-      >
-        Building Scalable <br />
-        <em className="not-italic text-primary">Business Operations</em>
-      </motion.h1>
+        {/* Texture + Glow */}
+        <div className="absolute inset-0 dot-grid-light opacity-25" />
+        <div className="absolute right-0 top-0 h-[620px] w-[620px] rounded-full bg-primary/15 blur-[150px]" />
+        <div className="absolute bottom-0 left-0 h-[420px] w-[420px] rounded-full bg-primary/8 blur-[120px]" />
 
-      <motion.p
-        variants={fadeUp}
-        className="max-w-2xl text-base font-light leading-8 text-muted-foreground"
-      >
-        Neal Foundation is a customer-focused business development and
-        outsourcing organization helping companies build scalable operations,
-        increase revenue, improve customer experiences, and streamline
-        business processes.
-      </motion.p>
+        {/* Luxury Lines */}
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
+        <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
 
-      <motion.div variants={fadeUp} className="flex flex-wrap gap-4 pt-2">
-        <Button
-          size="lg"
-          asChild
-          className="h-12 rounded-none px-8 text-xs font-bold uppercase tracking-[0.14em] premium-glow"
-        >
-          <Link href="/contact">
-            Work With Us <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
+        <div className="container relative z-10 mx-auto px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+            className="max-w-5xl space-y-7"
+          >
+            <motion.div variants={fadeUp}>
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-background/45 px-4 py-2 backdrop-blur-md">
+                <Sparkles className="h-4 w-4 text-primary" />
+                <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+                  About 24X7NetConnect
+                </span>
+              </div>
+            </motion.div>
 
-        <Button
-          size="lg"
-          variant="outline"
-          asChild
-          className="h-12 rounded-none border-primary/30 bg-background/35 px-8 text-xs font-bold uppercase tracking-[0.14em] backdrop-blur-md hover:bg-background/70"
-        >
-          <Link href="/#services">Explore Services</Link>
-        </Button>
-      </motion.div>
-    </motion.div>
-  </div>
-</section>
+              <motion.h1
+                         variants={fadeUp}
+                         className="font-serif font-bold display-hero text-foreground w-2/3"
+                       >
+                         Scalable Services for{" "}
+                         <span className="text-gradient-brand">Business Growth</span>
+                       </motion.h1>
 
-      {/* WHO WE ARE */}
+            <motion.p
+              variants={fadeUp}
+              className="max-w-2xl text-base font-light leading-8 text-muted-foreground"
+            >
+              24X7NetConnect is your smart internet service comparison platform designed to help residential and business customers find the most reliable and cost-effective internet providers available at their location.
+            </motion.p>
+
+            <motion.div variants={fadeUp} className="flex flex-wrap gap-4 pt-2">
+              <Button
+                size="lg"
+                asChild
+                className="h-12 rounded-md px-8 text-xs font-bold uppercase tracking-[0.14em] premium-glow"
+              >
+                <Link href="/contact">
+                  Search Now <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="h-12 rounded-md border-primary/30 bg-background/35 px-8 text-xs font-bold uppercase tracking-[0.14em] backdrop-blur-md hover:bg-background/70"
+              >
+                <a href="#how-it-works">Learn More</a>
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* WHAT WE DO */}
       <section className="relative overflow-hidden bg-background py-28 lg:py-32">
         <div className="absolute inset-0 dot-grid-light opacity-30" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
@@ -226,16 +125,16 @@ export default function About() {
           >
             <div>
               <motion.div variants={fadeUp} className="mb-6">
-                <SectionLabel>Who We Are</SectionLabel>
+                <SectionLabel>Our Platform</SectionLabel>
               </motion.div>
 
               <motion.h2
                 variants={fadeUp}
                 className="mb-8 font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl"
               >
-                Architects of{" "}
+                Simplifying{" "}
                 <em className="not-italic text-primary">
-                  Sustainable Growth
+                  Internet Comparison
                 </em>
               </motion.h2>
 
@@ -243,21 +142,14 @@ export default function About() {
                 variants={fadeUp}
                 className="mb-6 text-base font-light leading-relaxed text-muted-foreground"
               >
-                Neal Foundation provides end-to-end sales, customer support, lead
-                generation, consulting, software, and operational solutions. Beyond
-                staffing, we design scalable systems, strengthen business
-                processes, develop high-performing teams, and build sustainable
-                operations for long-term success.
+                With just an address or ZIP code search, users can instantly compare internet service providers, available plans, speeds, pricing, coverage, and special offers from multiple providers in their area.
               </motion.p>
 
               <motion.p
                 variants={fadeUp}
                 className="mb-10 text-base font-light leading-relaxed text-muted-foreground"
               >
-                Our approach is built around partnership, structure, execution,
-                and measurable outcomes. We help businesses establish stronger
-                operations while keeping growth, quality, and long-term stability
-                at the center of every engagement.
+                We empower consumers and businesses to make informed decisions by providing transparent comparisons, accurate pricing information, and location-based recommendations for finding the best internet connectivity solutions available.
               </motion.p>
 
               <motion.div
@@ -298,7 +190,7 @@ export default function About() {
                 <div className="relative aspect-[4/5] overflow-hidden bg-muted">
                   <img
                     src="/about-right.png"
-                    alt="Neal Foundation business operations"
+                    alt="24X7NetConnect Internet Comparison"
                     className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                   />
 
@@ -311,7 +203,7 @@ export default function About() {
                       </div>
 
                       <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
-                        Global Presence
+                        Global Reach
                       </p>
                     </div>
 
@@ -360,10 +252,214 @@ export default function About() {
         </div>
       </section>
 
-      {/* MISSION VISION */}
-      <section className="relative overflow-hidden bg-background py-28 lg:py-32">
+      {/* HOW IT WORKS */}
+      <section id="how-it-works" className="relative overflow-hidden bg-background py-28 lg:py-32">
         <div className="absolute inset-0 dot-grid-light opacity-30" />
         <div className="absolute right-0 top-0 h-[520px] w-[520px] rounded-full bg-primary/6 blur-[130px]" />
+
+        <div className="container relative z-10 mx-auto px-6 lg:px-8">
+          <div className="mb-16 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7 }}
+            >
+              <SectionLabel>Simple Process</SectionLabel>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl"
+            >
+              How 24X7NetConnect{" "}
+              <em className="not-italic text-primary">Works</em>
+            </motion.h2>
+          </div>
+
+          <div className="relative space-y-6">
+            <div className="absolute left-[17px] top-2 bottom-2 hidden w-px bg-gradient-to-b from-primary/40 via-border to-transparent sm:block" />
+
+            {howItWorks.map((step, i) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, x: 18 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{
+                  delay: i * 0.09,
+                  duration: 0.55,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="group relative flex gap-5 sm:gap-7"
+              >
+                <div className="relative z-10 mt-1 flex h-9 w-9 flex-shrink-0 items-center justify-center border border-primary/25 bg-muted text-[11px] font-serif font-bold italic text-primary/55 transition-all duration-500 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
+                  {step.n}
+                </div>
+
+                <div className="flex-1 border-t border-border/80 pt-5 transition-all duration-500 group-hover:border-primary/45">
+                  <h4 className="mb-2 font-serif text-lg font-bold text-foreground transition-colors duration-500 group-hover:text-primary">
+                    {step.title}
+                  </h4>
+
+                  <p className="text-sm font-light leading-relaxed text-muted-foreground">
+                    {step.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INTERNET SERVICES */}
+      <section className="relative overflow-hidden bg-muted py-28 lg:py-32">
+        <div className="absolute inset-0 dot-grid-light opacity-50" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+        <div className="container relative z-10 mx-auto px-6 lg:px-8">
+          <div className="mb-16 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7 }}
+            >
+              <SectionLabel>Internet Types</SectionLabel>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl"
+            >
+              Services We Help{" "}
+              <em className="not-italic text-primary">You Compare</em>
+            </motion.h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-px bg-border/70 md:grid-cols-3">
+            {internetServices.map((service, i) => {
+              const Icon = service.icon;
+
+              return (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{
+                    delay: i * 0.08,
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="group relative overflow-hidden bg-muted p-8 transition-all duration-500 hover:z-10 hover:bg-background hover:shadow-[0_24px_65px_rgba(0,0,0,0.12)]"
+                >
+                  <div className="absolute left-0 top-0 h-[2px] w-full origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" />
+
+                  <div className="mb-6 flex h-11 w-11 items-center justify-center border border-primary/25 bg-background text-primary transition-all duration-500 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
+                    <Icon className="h-5 w-5" />
+                  </div>
+
+                  <h3 className="mb-2 font-serif text-xl font-bold text-foreground transition-colors duration-500 group-hover:text-primary">
+                    {service.title}
+                  </h3>
+
+                  <p className="mb-4 text-sm font-light leading-relaxed text-muted-foreground">
+                    {service.desc}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {service.features.map((feature) => (
+                      <span
+                        key={feature}
+                        className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary transition-all duration-500 group-hover:bg-primary/20"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE */}
+      <section className="relative overflow-hidden bg-background py-28 lg:py-32">
+        <div className="absolute inset-0 dot-grid-light opacity-30" />
+        <div className="absolute left-0 bottom-0 h-[520px] w-[520px] rounded-full bg-primary/6 blur-[130px]" />
+
+        <div className="container relative z-10 mx-auto px-6 lg:px-8">
+          <div className="mb-16 grid grid-cols-1 items-end gap-8 lg:grid-cols-2 lg:gap-24">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={stagger}
+              className="space-y-6"
+            >
+              <motion.div variants={fadeUp}>
+                <SectionLabel>Why Choose Us</SectionLabel>
+              </motion.div>
+
+              <motion.h2
+                variants={fadeUp}
+                className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl"
+              >
+                Why Choose{" "}
+                <em className="not-italic text-primary">24X7NetConnect</em>
+              </motion.h2>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.65 }}
+              className="max-w-md text-sm font-light leading-relaxed text-muted-foreground lg:justify-self-end"
+            >
+              Our platform simplifies internet comparison, saving you time and money while helping you find the perfect connectivity solution for your home or business.
+            </motion.p>
+          </div>
+
+          <div className="border-y border-border/70">
+            {whyChoose.map((reason, i) => (
+              <motion.div
+                key={reason}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{
+                  delay: i * 0.06,
+                  duration: 0.55,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="group relative flex gap-5 overflow-hidden border-b border-border/60 px-1 py-6 transition-all duration-500 last:border-b-0 hover:bg-background/45 sm:px-4"
+              >
+                <div className="absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-primary transition-transform duration-500 group-hover:scale-y-100" />
+
+                <CheckCircle2 className="relative z-10 h-5 w-5 flex-shrink-0 text-primary transition-all duration-500 group-hover:scale-110" />
+
+                <p className="relative z-10 text-base font-light text-foreground transition-colors duration-500 group-hover:text-primary">
+                  {reason}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OUR MISSION */}
+      <section className="relative overflow-hidden bg-muted py-28 lg:py-32">
+        <div className="absolute inset-0 dot-grid-light opacity-30" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
 
         <div className="container relative z-10 mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-px bg-border/70 lg:grid-cols-2">
@@ -371,14 +467,14 @@ export default function About() {
               {
                 icon: Target,
                 label: "Our Mission",
-                title: "To Build Stronger Business Systems",
-                desc: "Our mission is to help businesses create scalable operations, improve customer experiences, strengthen internal processes, and unlock long-term growth through dependable outsourcing and consulting solutions.",
+                title: "Simplifying Internet Selection",
+                desc: "Our mission is to simplify the process of choosing an internet provider by providing transparent comparisons, accurate pricing information, and location-based recommendations. We empower consumers and businesses to make informed decisions and find the best internet connectivity solutions.",
               },
               {
                 icon: Eye,
                 label: "Our Vision",
-                title: "To Become a Trusted Growth Partner",
-                desc: "Our vision is to be recognized as a reliable business development and operational partner for companies seeking sustainable expansion across global markets.",
+                title: "Connected Communities",
+                desc: "Our vision is to be the leading internet provider comparison platform that connects people with the best internet solutions in their area. We're committed to making quality internet access simple, affordable, and accessible to everyone.",
               },
             ].map((item, i) => {
               const Icon = item.icon;
@@ -427,108 +523,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* VALUES + PROCESS */}
-      <section className="relative overflow-hidden bg-muted py-28 lg:py-32">
-        <div className="absolute inset-0 dot-grid-light opacity-50" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-
-        <div className="container relative z-10 mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
-            {/* Values */}
-            <div className="space-y-12">
-              <div className="space-y-6">
-                <SectionLabel>What Drives Us</SectionLabel>
-
-                <h2 className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl">
-                  Our Core Values
-                </h2>
-
-                <div className="h-px w-20 bg-gradient-to-r from-primary/60 to-transparent" />
-              </div>
-
-              <div className="border-y border-border/70">
-                {values.map((val, i) => (
-                  <motion.div
-                    key={val.title}
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{
-                      delay: i * 0.08,
-                      duration: 0.55,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                    className="group relative flex gap-5 overflow-hidden border-b border-border/60 px-1 py-6 transition-all duration-500 last:border-b-0 hover:bg-background/45 sm:px-4"
-                  >
-                    <div className="absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-primary transition-transform duration-500 group-hover:scale-y-100" />
-
-                    <span className="relative z-10 flex h-9 w-9 flex-shrink-0 items-center justify-center border border-primary/20 bg-muted text-[11px] font-serif font-bold italic text-primary/45 transition-all duration-500 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
-                      0{i + 1}
-                    </span>
-
-                    <div className="relative z-10">
-                      <h4 className="mb-2 font-serif text-xl font-bold text-foreground transition-colors duration-500 group-hover:text-primary">
-                        {val.title}
-                      </h4>
-
-                      <p className="text-sm font-light leading-relaxed text-muted-foreground">
-                        {val.desc}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Process */}
-            <div className="space-y-12">
-              <div className="space-y-6">
-                <SectionLabel>How We Work</SectionLabel>
-
-                <h2 className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl">
-                  Our Growth Framework
-                </h2>
-
-                <div className="h-px w-20 bg-gradient-to-r from-primary/60 to-transparent" />
-              </div>
-
-              <div className="relative space-y-6">
-                <div className="absolute left-[17px] top-2 bottom-2 hidden w-px bg-gradient-to-b from-primary/40 via-border to-transparent sm:block" />
-
-                {timeline.map((step, i) => (
-                  <motion.div
-                    key={step.title}
-                    initial={{ opacity: 0, x: 18 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{
-                      delay: i * 0.09,
-                      duration: 0.55,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                    className="group relative flex gap-5 sm:gap-7"
-                  >
-                    <div className="relative z-10 mt-1 flex h-9 w-9 flex-shrink-0 items-center justify-center border border-primary/25 bg-muted text-[11px] font-serif font-bold italic text-primary/55 transition-all duration-500 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
-                      {step.n}
-                    </div>
-
-                    <div className="flex-1 border-t border-border/80 pt-5 transition-all duration-500 group-hover:border-primary/45">
-                      <h4 className="mb-2 font-serif text-lg font-bold text-foreground transition-colors duration-500 group-hover:text-primary">
-                        {step.title}
-                      </h4>
-
-                      <p className="text-sm font-light leading-relaxed text-muted-foreground">
-                        {step.desc}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FINAL CTA */}
       <section className="relative overflow-hidden bg-background py-28 lg:py-32">
         <div className="absolute inset-0 dot-grid-light opacity-35" />
@@ -548,27 +542,26 @@ export default function About() {
 
             <div className="relative z-10 mx-auto max-w-3xl space-y-7">
               <div className="flex justify-center">
-                <SectionLabel>Partner With Us</SectionLabel>
+                <SectionLabel>Ready to Find?</SectionLabel>
               </div>
 
               <h2 className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl">
-                Ready to Build Stronger <br />
-                <em className="not-italic text-primary">Business Operations?</em>
+                Search. Compare. <br />
+                <em className="not-italic text-primary">Connect.</em>
               </h2>
 
               <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-muted-foreground">
-                Let’s discuss how Neal Foundation can support your sales, support,
-                consulting, software, and operational growth requirements.
+                Enter your address or ZIP code today and discover the best internet provider for your home or business with 24X7NetConnect.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4 pt-2">
                 <Button
                   size="lg"
                   asChild
-                  className="h-12 rounded-none px-8 text-xs font-bold uppercase tracking-[0.14em] premium-glow"
+                  className="h-12 rounded-md px-8 text-xs font-bold uppercase tracking-[0.14em] premium-glow"
                 >
                   <Link href="/contact">
-                    Book a Consultation <ArrowRight className="ml-2 h-4 w-4" />
+                    Start Searching <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
 
@@ -576,7 +569,7 @@ export default function About() {
                   size="lg"
                   variant="outline"
                   asChild
-                  className="h-12 rounded-none border-primary/25 px-8 text-xs font-bold uppercase tracking-[0.14em]"
+                  className="h-12 rounded-md border-primary/25 px-8 text-xs font-bold uppercase tracking-[0.14em]"
                 >
                   <Link href="/">Back to Home</Link>
                 </Button>

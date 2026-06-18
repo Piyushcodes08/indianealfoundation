@@ -5,172 +5,21 @@ import {
   ArrowRight,
   ArrowUpRight,
   Building2,
+  CheckCircle2,
   PhoneCall,
   Code2,
   LineChart,
   Users,
   HeartHandshake,
   Sparkles,
-  CheckCircle2,
   ShieldCheck,
   Layers3,
   Target,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-const stagger = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12 },
-  },
-};
-
-function SectionLabel({ children }: { children: ReactNode }) {
-  return (
-    <div className="flex items-center gap-3">
-      <span className="flex items-center gap-1.5">
-        <span className="h-1.5 w-1.5 rotate-45 bg-primary" />
-        <span className="h-px w-10 bg-gradient-to-r from-primary to-primary/15" />
-      </span>
-
-      <span className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-primary">
-        {children}
-      </span>
-    </div>
-  );
-}
-
-const services = [
-  {
-    num: "01",
-    title: "Sales Outsourcing",
-    icon: <LineChart className="h-5 w-5" />,
-    desc: "End-to-end outbound and inbound sales programs that fill your pipeline and close revenue.",
-    features: [
-      "Outbound Sales Campaigns",
-      "Inbound Sales Support",
-      "Telecom Sales",
-      "Customer Acquisition",
-      "Cross-Selling & Upselling",
-      "Lead Qualification",
-    ],
-    longDesc:
-      "Our sales outsourcing solutions deploy trained, performance-driven sales teams that integrate seamlessly with your existing operations. We manage the sales lifecycle from outreach and qualification to pipeline support and revenue-focused execution.",
-  },
-  {
-    num: "02",
-    title: "Customer Service",
-    icon: <HeartHandshake className="h-5 w-5" />,
-    desc: "24/7 multi-channel support operations that retain customers and build loyalty.",
-    features: [
-      "Inbound Customer Support",
-      "Email & Chat Support",
-      "Technical Support",
-      "Billing Support",
-      "Retention Programs",
-      "Loyalty Management",
-    ],
-    longDesc:
-      "Our customer service teams operate as an extension of your brand, delivering consistent support across calls, email, chat, and customer engagement channels with trained agents and structured quality monitoring.",
-  },
-  {
-    num: "03",
-    title: "Lead Generation",
-    icon: <Users className="h-5 w-5" />,
-    desc: "Data-driven B2B and B2C lead generation programs built for consistent pipeline growth.",
-    features: [
-      "B2B & B2C Generation",
-      "Appointment Setting",
-      "Data Research & Validation",
-      "Prospect Qualification",
-      "Market Research",
-      "Pipeline Building",
-    ],
-    longDesc:
-      "We help businesses build predictable lead pipelines through targeted prospecting, verified data, qualification workflows, and structured outreach programs designed to generate meaningful business opportunities.",
-  },
-  {
-    num: "04",
-    title: "BPO Services",
-    icon: <PhoneCall className="h-5 w-5" />,
-    desc: "Full-scale call center and back-office operations designed for efficiency and scale.",
-    features: [
-      "Call Center Operations",
-      "CRM Management",
-      "Back Office Support",
-      "Order Processing",
-      "Administrative Support",
-      "Reporting & Analytics",
-    ],
-    longDesc:
-      "Our BPO services support daily operational execution, including call handling, CRM administration, process support, back-office work, reporting, and scalable business operations management.",
-  },
-  {
-    num: "05",
-    title: "Growth Consulting",
-    icon: <Building2 className="h-5 w-5" />,
-    desc: "Strategic advisory and execution support to build and scale business operations from the ground up.",
-    features: [
-      "Office Setup Planning",
-      "Team Structure Design",
-      "Recruitment & Training",
-      "KPI Development",
-      "Performance Systems",
-      "Growth & Expansion Planning",
-    ],
-    longDesc:
-      "Our consulting practice helps companies design stronger operating models, build teams, define KPIs, improve performance systems, and create sustainable business growth strategies.",
-  },
-  {
-    num: "06",
-    title: "Software Solutions",
-    icon: <Code2 className="h-5 w-5" />,
-    desc: "Custom digital tools, ERP systems, and automation that accelerate your operational efficiency.",
-    features: [
-      "Website Development",
-      "Business Applications",
-      "Custom ERP Solutions",
-      "CRM Integration",
-      "Automation Tools",
-      "Process Optimization",
-    ],
-    longDesc:
-      "We develop custom software and digital systems tailored to your business workflows, including websites, dashboards, ERP systems, CRM integrations, and automation tools that improve operational performance.",
-  },
-];
-
-const process = [
-  {
-    n: "01",
-    title: "Understand Requirements",
-    desc: "We study your business model, goals, current challenges, and operational needs.",
-  },
-  {
-    n: "02",
-    title: "Design the Solution",
-    desc: "We create a service model with clear workflows, team structure, KPIs, and reporting standards.",
-  },
-  {
-    n: "03",
-    title: "Build & Execute",
-    desc: "We deploy trained teams, systems, and processes aligned with your business objectives.",
-  },
-  {
-    n: "04",
-    title: "Optimize & Scale",
-    desc: "We monitor performance, improve outcomes, and support long-term operational growth.",
-  },
-];
+import { fadeUp, stagger } from "@/lib/animations";
+import { SectionLabel } from "@/components/shared";
+import { servicesData, processSteps } from "@/data/services";
 
 export default function Services() {
   return (
@@ -225,7 +74,7 @@ export default function Services() {
               <Button
                 size="lg"
                 asChild
-                className="h-[52px] rounded-none bg-primary px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 premium-glow"
+                className="h-[52px] rounded-md bg-primary px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 premium-glow"
               >
                 <Link href="/contact">
                   Get Started <ArrowRight className="ml-2 h-4 w-4" />
@@ -236,7 +85,7 @@ export default function Services() {
                 size="lg"
                 variant="outline"
                 asChild
-                className="h-[52px] rounded-none border-primary/30 bg-background/35 px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-background/70"
+                className="h-[52px] rounded-md border-primary/30 bg-background/35 px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-background/70"
               >
                 <a href="#service-list">
                   View Services <ArrowUpRight className="ml-2 h-4 w-4" />
@@ -294,7 +143,7 @@ export default function Services() {
             <div className="absolute -inset-px bg-gradient-to-br from-primary/25 via-border to-primary/10" />
 
             <div className="relative grid grid-cols-1 gap-px bg-border/70 md:grid-cols-2 lg:grid-cols-3">
-              {services.map((service, i) => (
+              {servicesData.map((service, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 24 }}
@@ -399,7 +248,7 @@ export default function Services() {
           </motion.div>
 
           <div className="space-y-px bg-border/70">
-            {services.map((service, i) => (
+            {servicesData.map((service, i) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 18 }}
@@ -522,7 +371,7 @@ export default function Services() {
             <div className="relative space-y-6">
               <div className="absolute left-[17px] top-2 bottom-2 hidden w-px bg-gradient-to-b from-primary/40 via-border to-transparent sm:block" />
 
-              {process.map((step, i) => (
+              {processSteps.map((step, i) => (
                 <motion.div
                   key={step.title}
                   initial={{ opacity: 0, x: 18 }}
@@ -592,7 +441,7 @@ export default function Services() {
                 <Button
                   size="lg"
                   asChild
-                  className="h-12 rounded-none px-8 text-xs font-bold uppercase tracking-[0.14em] premium-glow"
+                  className="h-12 rounded-md px-8 text-xs font-bold uppercase tracking-[0.14em] premium-glow"
                 >
                   <Link href="/contact">
                     Book a Consultation <ArrowRight className="ml-2 h-4 w-4" />
@@ -603,7 +452,7 @@ export default function Services() {
                   size="lg"
                   variant="outline"
                   asChild
-                  className="h-12 rounded-none border-primary/25 px-8 text-xs font-bold uppercase tracking-[0.14em]"
+                  className="h-12 rounded-md border-primary/25 px-8 text-xs font-bold uppercase tracking-[0.14em]"
                 >
                   <Link href="/">
                     Back to Home <ArrowUpRight className="ml-2 h-4 w-4" />
