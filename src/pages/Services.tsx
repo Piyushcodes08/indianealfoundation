@@ -28,7 +28,7 @@ export default function Services() {
       <section className="relative flex min-h-[100vh] items-end overflow-hidden bg-background pb-0 pt-32">
         <div className="absolute inset-0">
           <img
-            src="/services-hero-bg.png"
+            src="/services-hero-bg.webp"
             alt="Neal Foundation Services Background"
             className="h-screen w-full object-cover"
           />

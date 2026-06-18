@@ -58,7 +58,7 @@ export default function Home() {
   {/* Background Image */}
   <div className="absolute inset-0">
     <img
-      src="/hero-bg.png"
+      src="/hero-bg.webp"
       alt="Neal Foundation Hero Background"
       className="h-full w-full object-cover"
     />
@@ -792,7 +792,7 @@ and build sustainable operations for long-term success.
             <div className="mb-8 overflow-hidden border border-primary/20 bg-black p-6 shadow-[0_20px_60px_rgba(0,0,0,0.16)]">
               <div className="flex items-center justify-between gap-6">
                 <img
-                  src="/24x7netconnect-logo.png"
+                  src="/24x7netconnect-logo.webp"
                   alt="24X7NetConnect Logo"
                   className="h-20 w-auto max-w-[260px] object-contain"
                 />

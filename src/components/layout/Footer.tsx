@@ -32,7 +32,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-8">
             <div className="flex items-center gap-4">
               <img
-                src="/NealFoundation Logo.png"
+                src="/NealFoundation Logo.webp"
                 alt="Neal Foundation logo"
                 className="h-24 w-24 object-contain flex-shrink-0"
               />

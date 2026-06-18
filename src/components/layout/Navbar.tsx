@@ -50,7 +50,7 @@ export default function Navbar() {
           <div className="relative flex h-16 w-16 flex-shrink-0 items-center justify-center sm:h-24 sm:w-24">
             <div className="absolute inset-1 rounded-full bg-primary/8 opacity-0 blur-lg transition-opacity duration-500 group-hover:opacity-100" />
             <img
-              src="/NealFoundation Logo.png"
+              src="/NealFoundation Logo.webp"
               alt="Neal Foundation logo"
               className="relative object-contain drop-shadow-[0_10px_22px_rgba(0,0,0,0.12)]"
             />

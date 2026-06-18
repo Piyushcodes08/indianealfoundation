@@ -69,7 +69,7 @@ export default function Contact() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-[position:center_right]"
           style={{
-            backgroundImage: "url('/contact-bg.png')",
+            backgroundImage: "url('/contact-bg.webp')",
           }}
         />
 

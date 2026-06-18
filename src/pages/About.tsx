@@ -40,7 +40,7 @@ export default function About() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/about-hero-bg.png"
+            src="/about-hero-bg.webp"
             alt="24X7NetConnect About Hero Background"
             className="h-full w-full object-cover"
           />
@@ -189,7 +189,7 @@ export default function About() {
               <div className="relative overflow-hidden bg-card p-3 shadow-[0_32px_90px_rgba(0,0,0,0.12)]">
                 <div className="relative aspect-[4/5] overflow-hidden bg-muted">
                   <img
-                    src="/about-right.png"
+                    src="/about-right.webp"
                     alt="24X7NetConnect Internet Comparison"
                     className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                   />

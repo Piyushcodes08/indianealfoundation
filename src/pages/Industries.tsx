@@ -27,7 +27,7 @@ export default function Industries() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-[position:center_right]"
           style={{
-            backgroundImage: "url('/industries-hero-bg.png')",
+            backgroundImage: "url('/industries-hero-bg.webp')",
           }}
         />
 
