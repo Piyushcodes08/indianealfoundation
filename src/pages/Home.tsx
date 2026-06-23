@@ -177,7 +177,7 @@ export default function Home() {
   {/* Background Image */}
   <div className="absolute inset-0">
     <img
-      src="/hero.png"
+      src="/landing.png"
       alt="Neal Foundation Hero Background"
       className="h-full w-full object-cover"
     />
@@ -224,7 +224,7 @@ export default function Home() {
       {/* Paragraph */}
       <motion.p
         variants={fadeUp}
-        className="max-w-2xl text-base font-medium leading-6 text-gray-900"
+        className="max-w-2xl text-base font-medium leading-6 text-white"
       >
         Neal Foundation supports community-led initiatives across India,
         fostering volunteer outreach, education, and compassionate care
@@ -447,7 +447,7 @@ Read More
         <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/70 p-3 shadow-2xl shadow-black/10 backdrop-blur-xl">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem] bg-muted">
             <img
-              src="/about-r8.png"
+              src="/about-r88.png"
               alt="Corporate team at Neal Foundation"
               className="object-cover w-full h-full scale-105 transition-transform duration-700 hover:scale-100"
               data-testid="img-about"

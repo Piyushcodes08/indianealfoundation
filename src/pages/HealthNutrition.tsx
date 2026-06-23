@@ -64,16 +64,21 @@ export default function HealthNutrition() {
               </div>
             </motion.div>
 
-            <motion.h1
-              variants={fadeUp}
-              className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
-            >
-             Nurturing Healthy - <span className="text-gradient-brand"> Communities</span>
-            </motion.h1>
-
+            
+ <motion.h1
+                    variants={fadeUp}
+                    className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
+                  >
+                    <span className="block"> Nurturing Healthy - </span>
+            
+                    <span className="block text-gradient-brand lg:text-4xl sm:text-3xl text-2xl font-semibold tracking-tight leading-16">
+                   Communities
+                    </span>
+            
+                  </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-base font-medium leading-8 text-gray-900"
+              className="max-w-2xl text-base font-medium leading-8 text-white"
             >
               Good health and proper nutrition are fundamental rights. Neal Foundation provides healthcare access, nutritional support, and health education to vulnerable communities across India.
             </motion.p>

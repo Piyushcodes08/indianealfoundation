@@ -64,16 +64,21 @@ export default function AnimalWelfare() {
               </div>
             </motion.div>
 
-            <motion.h1
-              variants={fadeUp}
-              className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
-            >
-              Animal Welfare - <span className="text-gradient-brand">Compassion for All Beings</span>
-            </motion.h1>
+         
+             <motion.h1
+        variants={fadeUp}
+        className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
+      >
+        <span className="block">  Animal Welfare - </span>
 
+        <span className="block text-gradient-brand lg:text-4xl sm:text-3xl text-2xl font-semibold tracking-tight leading-16">
+    Compassion for All Beings
+        </span>
+
+      </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-base font-medium leading-8 text-gray-900"
+              className="max-w-2xl text-base font-medium leading-8 text-white"
             >
               Neal Foundation believes in extending compassion to all creatures. We work to protect, rescue, and provide care for animals in vulnerable situations while promoting community awareness about animal welfare.
             </motion.p>

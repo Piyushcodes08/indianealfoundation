@@ -105,17 +105,20 @@ export default function About() {
               </div>
             </motion.div>
 
-            <motion.h1
-              variants={fadeUp}
-              className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
-            >
-              Hope That Uplifts,{" "}
-              <span className="text-gradient-brand"> Support That Lasts</span>
-            </motion.h1>
+        <motion.h1
+        variants={fadeUp}
+        className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
+      >
+        <span className="block"> Hope That Uplifts,</span>
 
+        <span className="block text-gradient-brand lg:text-4xl sm:text-3xl text-2xl font-semibold tracking-tight leading-16">
+        Support That Lasts
+        </span>
+
+      </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-base font-medium leading-8 text-gray-900"
+              className="max-w-2xl text-base font-medium leading-8 text-white"
             >
               At the Neal Foundation, we believe that genuine progress is based on compassion. We are a community-based nonprofit organization committed to fostering hope and improving lives for women, children, the weak, and those without a voice.
             </motion.p>

@@ -63,17 +63,20 @@ export default function WomenEmpowerment() {
                 </span>
               </div>
             </motion.div>
-
             <motion.h1
-              variants={fadeUp}
-              className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
-            >
-               Empowerment - <span className="text-gradient-brand">Building Stronger </span>
-            </motion.h1>
-
+                    variants={fadeUp}
+                    className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
+                  >
+                    <span className="block">Empowerment - </span>
+            
+                    <span className="block text-gradient-brand lg:text-4xl sm:text-3xl text-2xl font-semibold tracking-tight leading-16">
+                  Building Stronger 
+                    </span>
+            
+                  </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-base font-medium leading-8 text-gray-900"
+              className="max-w-2xl text-base font-medium leading-8 text-white"
             >
               Neal Foundation is dedicated to empowering women through education, skill development, economic opportunities, and health support. We believe that when women thrive, communities flourish.
             </motion.p>

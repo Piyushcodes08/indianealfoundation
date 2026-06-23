@@ -73,7 +73,7 @@ export default function Navbar() {
                     className={`nav-link-hover text-[12px] font-medium tracking-[0.1em] uppercase transition-colors duration-300 ${
                       location === link.href
                         ? "text-primary"
-                        : "text-muted-foreground hover:text-foreground"
+                        : "text-gray-900 hover:text-foreground"
                     }`}
                   >
                     {link.label}
@@ -85,7 +85,7 @@ export default function Navbar() {
                       className={`nav-link-hover text-[12px] font-medium tracking-[0.1em] uppercase transition-colors duration-300 ${
                         location === link.href
                           ? "text-primary"
-                          : "text-muted-foreground hover:text-foreground"
+                          : "text-gray-900 hover:text-foreground"
                       }`}
                     >
                       {link.label}
