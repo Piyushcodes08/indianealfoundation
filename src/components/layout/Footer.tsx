@@ -115,16 +115,16 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-3">
-            <a href="#" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition">
+            <a href="https://www.facebook.com/profile.php?id=61576390825096" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition">
               <Facebook className="h-4 w-4" />
             </a>
-            <a href="#" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition">
+            <a href="https://x.com/foundation_neal" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition">
               <X className="h-4 w-4" />
             </a>
-            <a href="#" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition">
+            <a href="https://www.youtube.com/@NealFoundation" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition">
               <Youtube className="h-4 w-4" />
             </a>
-            <a href="#" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition">
+            <a href="https://www.instagram.com/nealfoundation1008/" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition">
               <Instagram className="h-4 w-4" />
             </a>
           </div>
