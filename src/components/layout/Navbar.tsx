@@ -28,9 +28,15 @@ export default function Navbar() {
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Industries", href: "/industries" },
-    { label: "Contact", href: "/contact" },
+    { label: "Events", href: "/events" },
+    { label: "Our Work", href: "/our-work", hasDropdown: true },
+  ];
+
+  const workItems = [
+    { label: "Women Empowerment", href: "/women-empowerment" },
+    { label: "Child Education", href: "/child-education" },
+    { label: "Health & Nutrition", href: "/health-nutrition" },
+    { label: "Animal Welfare", href: "/animal-welfare" },
   ];
 
   return (
@@ -60,17 +66,46 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-10">
           <ul className="flex items-center gap-8">
             {navLinks.map((link) => (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  className={`nav-link-hover text-[12px] font-medium tracking-[0.1em] uppercase transition-colors duration-300 ${
-                    location === link.href
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {link.label}
-                </Link>
+              <li key={link.label} className="relative">
+                {!link.hasDropdown ? (
+                  <Link
+                    href={link.href}
+                    className={`nav-link-hover text-[12px] font-medium tracking-[0.1em] uppercase transition-colors duration-300 ${
+                      location === link.href
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <div className="group">
+                    <Link
+                      href={link.href}
+                      className={`nav-link-hover text-[12px] font-medium tracking-[0.1em] uppercase transition-colors duration-300 ${
+                        location === link.href
+                          ? "text-primary"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+
+                    <div className="pointer-events-none absolute left-0 top-full w-56 pt-3 opacity-0 translate-y-1 transform transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+                      <div className="rounded-lg bg-card/95 border border-border/60 shadow-[0_12px_36px_rgba(0,0,0,0.08)]">
+                        <ul className="p-3">
+                          {workItems.map((w) => (
+                            <li key={w.label}>
+                              <Link href={w.href} className="block px-3 py-2 text-sm text-muted-foreground hover:text-foreground">
+                                {w.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -81,7 +116,7 @@ export default function Navbar() {
               className="h-9 px-5 text-[11px] font-semibold tracking-[0.1em] uppercase rounded bg-primary hover:bg-primary/90 text-primary-foreground premium-glow transition-all duration-300"
             >
               <Link href="/contact" data-testid="link-book-consultation">
-                Book Consultation
+               contact us
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </Button>
@@ -117,15 +152,37 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.05 }}
               >
-                <Link
-                  href={link.href}
-                  className={`block text-sm font-medium tracking-[0.1em] uppercase py-3.5 border-b border-border transition-colors ${
-                    location === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                  }`}
-                  data-testid={`link-mobile-${link.label.toLowerCase()}`}
-                >
-                  {link.label}
-                </Link>
+                {!link.hasDropdown ? (
+                  <Link
+                    href={link.href}
+                    className={`block text-sm font-medium tracking-[0.1em] uppercase py-3.5 border-b border-border transition-colors ${
+                      location === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                    }`}
+                    data-testid={`link-mobile-${link.label.toLowerCase()}`}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <div className="pb-2 border-b border-border">
+                    <Link
+                      href={link.href}
+                      className={`block text-sm font-medium tracking-[0.1em] uppercase py-3.5 transition-colors ${
+                        location === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                    {workItems.map((w) => (
+                      <Link
+                        key={w.label}
+                        href={w.href}
+                        className="block text-sm pl-4 py-2 text-muted-foreground hover:text-foreground border-b border-border"
+                      >
+                        {w.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             ))}
             <Button
@@ -133,7 +190,7 @@ export default function Navbar() {
               className="w-full mt-5 rounded-md text-[11px] font-semibold tracking-[0.1em] uppercase h-12 premium-glow"
             >
               <Link href="/contact">
-                Book Consultation
+               Contact Us
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </Button>

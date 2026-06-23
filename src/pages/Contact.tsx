@@ -7,12 +7,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   Sparkles,
-  Globe,
   Mail,
-  Phone,
-  Clock,
-  HeartHandshake,
-  CheckCircle2,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -69,7 +64,7 @@ export default function Contact() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-[position:center_right]"
           style={{
-            backgroundImage: "url('/contact-bg.webp')",
+            backgroundImage: "url('/contact.png')",
           }}
         />
 
@@ -102,17 +97,16 @@ export default function Contact() {
               variants={fadeUp}
               className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
             >
-              Let&apos;s Connect With Our {" "}
-              <span className="text-gradient-brand">Growth Team</span>
+              Let&apos;s Connect With {" "}
+              <span className="text-gradient-brand">Purpose</span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-base font-light leading-8 text-muted-foreground"
+              className="max-w-2xl text-base font-medium leading-8 text-gray-900"
             >
-              Connect with Neal Foundation to discuss your sales outsourcing,
-              customer support, lead generation, BPO, consulting, and software
-              growth requirements.
+              Reach out to volunteer, partner, support an event, or learn more
+              about Neal Foundation&apos;s community programs across India.
             </motion.p>
 
             <motion.div
@@ -125,7 +119,7 @@ export default function Contact() {
                 className="h-[52px] rounded-md bg-primary px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 premium-glow"
               >
                 <a href="#contact-form">
-                  Start Consultation
+                  Start a Conversation
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
@@ -136,8 +130,8 @@ export default function Contact() {
                 asChild
                 className="h-[52px] rounded-md border-primary/30 bg-background/35 px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-background/70"
               >
-                <Link href="/services">
-                  Explore Services
+                <Link href="/our-work">
+                  Explore Our Work
                   <ArrowUpRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -227,8 +221,8 @@ export default function Contact() {
               transition={{ duration: 0.65 }}
               className="max-w-md text-sm font-light leading-relaxed text-muted-foreground lg:justify-self-end"
             >
-              Share your requirements and our team will connect with you to
-              understand your business goals and recommend the right solution.
+              Share how you would like to get involved and our team will
+              connect with you about the right next step.
             </motion.p>
           </div>
 
@@ -254,10 +248,10 @@ export default function Contact() {
 
                 <div className="relative z-10 flex h-full min-h-[620px] flex-col justify-between gap-12">
                   <div className="space-y-7">
-                    <SectionLabel>Business Inquiry</SectionLabel>
+                    <SectionLabel>Community Inquiry</SectionLabel>
 
                     <h3 className="font-serif text-3xl font-bold leading-tight text-foreground md:text-4xl">
-                      Let&apos;s Grow <br />
+                      Let&apos;s Serve <br />
                       <em className="not-italic text-primary">Together</em>
                     </h3>
 
@@ -280,8 +274,7 @@ export default function Contact() {
 
                   <div className="border-t border-border/70 pt-6">
                     <p className="font-serif text-lg italic leading-relaxed text-foreground/75">
-                      “Our success is directly connected to the success of our
-                      clients.”
+                      "Real change grows when people choose to care together."
                     </p>
                   </div>
                 </div>
@@ -300,11 +293,11 @@ export default function Contact() {
                 <div className="relative z-10 mb-10 flex items-start justify-between gap-6">
                   <div>
                     <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-                      Consultation Request
+                      Contact Request
                     </p>
 
                     <h3 className="font-serif text-2xl font-bold text-foreground md:text-3xl">
-                      Tell Us About Your Goals
+                      Tell Us How You Want to Help
                     </h3>
                   </div>
 
@@ -347,12 +340,12 @@ export default function Contact() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                              Company Name
+                              Organization / Group Name
                             </FormLabel>
                             <FormControl>
                               <Input
                                 className="h-12 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-4 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
-                                placeholder="Acme Corp"
+                                placeholder="Community Group or NGO"
                                 data-testid="input-company"
                                 {...field}
                               />
@@ -370,13 +363,13 @@ export default function Contact() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                              Work Email
+                              Contact Email
                             </FormLabel>
                             <FormControl>
                               <Input
                                 className="h-12 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-4 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
                                 type="email"
-                                placeholder="john@acme.com"
+                                placeholder="name@example.com"
                                 data-testid="input-email"
                                 {...field}
                               />
@@ -414,7 +407,7 @@ export default function Contact() {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                            Service Required
+                            How Can We Help?
                           </FormLabel>
 
                           <Select
@@ -426,28 +419,25 @@ export default function Contact() {
                                 className="h-12 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-4 text-sm transition-colors focus:border-primary focus:ring-0"
                                 data-testid="select-service"
                               >
-                                <SelectValue placeholder="Select a service" />
+                                <SelectValue placeholder="Select a focus area" />
                               </SelectTrigger>
                             </FormControl>
 
                             <SelectContent>
-                              <SelectItem value="sales">
-                                Sales Outsourcing
+                              <SelectItem value="community">
+                                Community Programs
                               </SelectItem>
-                              <SelectItem value="support">
-                                Customer Service Solutions
+                              <SelectItem value="volunteer">
+                                Volunteer Partnerships
                               </SelectItem>
-                              <SelectItem value="leads">
-                                Lead Generation Services
+                              <SelectItem value="donations">
+                                Donor & Sponsor Support
                               </SelectItem>
-                              <SelectItem value="bpo">
-                                Business Process Outsourcing
+                              <SelectItem value="events">
+                                Event Collaboration
                               </SelectItem>
-                              <SelectItem value="consulting">
-                                Business Setup & Growth Consulting
-                              </SelectItem>
-                              <SelectItem value="software">
-                                Software & Digital Solutions
+                              <SelectItem value="impact">
+                                Impact Monitoring & Reporting
                               </SelectItem>
                             </SelectContent>
                           </Select>
@@ -485,7 +475,7 @@ export default function Contact() {
                         className="group h-[52px] w-full rounded-md text-sm font-semibold uppercase tracking-[0.14em] premium-glow"
                         data-testid="button-submit-consultation"
                       >
-                        Book a Consultation
+                        Send Message
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </Button>
                     </div>
@@ -559,17 +549,17 @@ export default function Contact() {
 
             <div className="relative z-10 mx-auto max-w-3xl space-y-7">
               <div className="flex justify-center">
-                <SectionLabel>Ready to Start?</SectionLabel>
+              <SectionLabel>Ready to Help?</SectionLabel>
               </div>
 
               <h2 className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl">
-                Let&apos;s Discuss Your <br />
-                <em className="not-italic text-primary">Growth Requirements</em>
+                Let&apos;s Build More <br />
+                <em className="not-italic text-primary">Community Impact</em>
               </h2>
 
               <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-muted-foreground">
-                Our team is ready to understand your goals and help you build a
-                scalable, performance-driven business operation.
+                Our team is ready to understand how you want to contribute and
+                guide you toward a meaningful way to get involved.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4 pt-2">

@@ -1,131 +1,133 @@
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Phone, X, Youtube } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const services = [
-    { label: "Sales Outsourcing", href: "/services" },
-    { label: "Customer Support", href: "/services" },
-    { label: "Lead Generation", href: "/services" },
-    { label: "Business Consulting", href: "/services" },
-    { label: "BPO Services", href: "/services" },
-    { label: "Software Solutions", href: "/services" },
-  ];
-
-  const quickLinks = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Industries", href: "/industries" },
-    { label: "Contact", href: "/contact" },
-  ];
-
   return (
-    <footer className="bg-muted text-foreground relative">
-      <div className="absolute top-0 left-0 right-0 h-px section-accent-line" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-px bg-primary" />
+    <footer className="bg-slate-950 text-white relative overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="pt-20 pb-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-14 border-b border-border">
-
-          <div className="lg:col-span-4 space-y-8">
-            <div className="flex items-center gap-4">
+        <div className="pt-20 pb-14 grid grid-cols-1 gap-14 lg:grid-cols-[1.3fr_0.85fr_0.85fr_1.1fr] border-b border-white/10">
+          <div className="space-y-6">
+            <div className="flex items-start gap-4">
               <img
                 src="/NealFoundation Logo.webp"
                 alt="Neal Foundation logo"
-                className="h-24 w-24 object-contain flex-shrink-0"
+                className="h-24 w-24 object-contain"
               />
-           
-            </div>
-
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs font-light">
-              Driven by Growth. Powered by Partnership.
-            </p>
-
-         
-
-            <div className="space-y-2">
-              {["United States", "Canada", "Bharat"].map((loc) => (
-                <div key={loc} className="flex items-center gap-3 text-xs text-muted-foreground uppercase tracking-[0.14em]">
-                  <span className="w-5 h-px bg-primary/60" />
-                  {loc}
-                </div>
-              ))}
+              <div>
+                <p className="font-serif text-2xl font-semibold tracking-tight text-white">
+                  NEAL FOUNDATION
+                </p>
+                <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/70 font-light">
+                  We are a non-profit organization dedicated to helping those in need.
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="lg:col-span-3 space-y-6">
-            <h4 className="font-sans font-semibold text-[10px] tracking-[0.2em] uppercase text-foreground/45">Services</h4>
-            <ul className="space-y-3.5">
-              {services.map((s) => (
-                <li key={s.label}>
-                  <Link
-                    href={s.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 font-light"
-                    data-testid={`footer-link-${s.label.toLowerCase().replace(/ /g, "-")}`}
-                  >
-                    {s.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-2 space-y-6">
-            <h4 className="font-sans font-semibold text-[10px] tracking-[0.2em] uppercase text-foreground/45">Navigation</h4>
-            <ul className="space-y-3.5">
-              {quickLinks.map((l) => (
-                <li key={l.label}>
-                  <Link
-                    href={l.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 font-light"
-                    data-testid={`footer-nav-${l.label.toLowerCase()}`}
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-3 space-y-6">
-            <h4 className="font-sans font-semibold text-[10px] tracking-[0.2em] uppercase text-foreground/45">Legal</h4>
-            <ul className="space-y-3.5">
+          <div className="space-y-6">
+            <h4 className="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
+              Site Map
+            </h4>
+            <ul className="space-y-3 text-sm text-white/70">
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 font-light">
-                  Privacy Policy
-                </a>
+                <Link href="/about" className="hover:text-white transition">
+                  About Us
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 font-light">
-                  Terms &amp; Conditions
-                </a>
+                <Link href="/contact" className="hover:text-white transition">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/events" className="hover:text-white transition">
+                  Events
+                </Link>
               </li>
             </ul>
-
-            <div className="pt-5">
-              <p className="text-[10px] uppercase tracking-[0.14em] text-muted-foreground mb-3">Global Operations</p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 text-xs text-primary font-semibold tracking-[0.1em] uppercase border-b border-primary/40 pb-0.5 hover:border-primary hover:text-foreground transition-colors duration-300"
-                data-testid="footer-link-contact"
-              >
-                Schedule Consultation
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
           </div>
 
+          <div className="space-y-6">
+            <h4 className="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
+              Our Work
+            </h4>
+            <ul className="space-y-3 text-sm text-white/70">
+              <li>
+                <Link href="/women-empowerment" className="hover:text-white transition">
+                  Women Empowerment
+                </Link>
+              </li>
+              <li>
+                <Link href="/child-education" className="hover:text-white transition">
+                  Child Education
+                </Link>
+              </li>
+              <li>
+                <Link href="/health-nutrition" className="hover:text-white transition">
+                  Health & Nutrition
+                </Link>
+              </li>
+              <li>
+                <Link href="/animal-welfare" className="hover:text-white transition">
+                  Animal Welfare
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-6">
+            <h4 className="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
+              Contact Us
+            </h4>
+            <div className="space-y-4 text-sm text-white/70">
+              <div className="flex items-start gap-3">
+                <span className="mt-1 text-primary">
+                  <MapPin className="h-4 w-4" />
+                </span>
+                <p>
+                  C 515, Dev Aurum Commercial Complex,
+                  Prahlad Nagar, Ahmedabad Gujarat 380015
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone className="h-4 w-4 text-primary" />
+                <a href="tel:07949217538" className="hover:text-white transition">
+                  079 4921 7538
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="h-4 w-4 text-primary" />
+                <a href="mailto:contact@nealfoundation.com" className="hover:text-white transition">
+                  contact@nealfoundation.com
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="py-7 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[11px] text-muted-foreground font-light tracking-wide">
-            &copy; {currentYear} Neal Foundation &amp; 24X7NetConnect. All rights reserved.
+        <div className="py-7 flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <p className="text-[11px] text-white/60 font-light">
+            (c) {currentYear} Neal Foundation. All rights reserved.
           </p>
-          <p className="text-[10px] text-muted-foreground uppercase tracking-[0.16em]">
-            Building Businesses &nbsp;&middot;&nbsp; Creating Opportunities &nbsp;&middot;&nbsp; Delivering Results
-          </p>
+
+          <div className="flex items-center gap-3">
+            <a href="#" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition">
+              <Facebook className="h-4 w-4" />
+            </a>
+            <a href="#" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition">
+              <X className="h-4 w-4" />
+            </a>
+            <a href="#" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition">
+              <Youtube className="h-4 w-4" />
+            </a>
+            <a href="#" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition">
+              <Instagram className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

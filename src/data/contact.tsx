@@ -9,10 +9,10 @@ import * as z from "zod"
 
 export const contactSchema = z.object({
   name: z.string().min(2, "Please enter your full name"),
-  companyName: z.string().min(2, "Please enter your company name"),
+  companyName: z.string().min(2, "Please enter your organization or group name"),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().min(7, "Please enter your phone number"),
-  serviceRequired: z.string().min(1, "Please select a service"),
+  serviceRequired: z.string().min(1, "Please select a focus area"),
   message: z.string().min(10, "Please enter your message"),
 })
 
@@ -21,8 +21,8 @@ export type ContactFormValues = z.infer<typeof contactSchema>
 export const contactHighlights = [
   {
     icon: <Globe className="h-4 w-4" />,
-    label: "Global Presence",
-    value: "United States · Canada · Bharat",
+    label: "India Presence",
+    value: "India",
   },
   {
     icon: <Clock className="h-4 w-4" />,
@@ -32,35 +32,35 @@ export const contactHighlights = [
   {
     icon: <HeartHandshake className="h-4 w-4" />,
     label: "Partnership First",
-    value: "Built for Long-Term Growth",
+    value: "Built for Long-Term Impact",
   },
 ]
 
 export const businessAreas = [
-  "Sales Outsourcing",
-  "Customer Support Operations",
-  "Lead Generation Services",
-  "BPO & Back Office Support",
-  "Consulting & Software Solutions",
+  "Community Programs",
+  "Volunteer Partnerships",
+  "Donor & Sponsor Support",
+  "Event Collaboration",
+  "Impact Monitoring & Reporting",
 ]
 
 export const contactCards = [
   {
     icon: <Mail className="h-5 w-5" />,
     title: "Email Support",
-    value: "Business inquiries welcome",
-    desc: "Share your requirements and our team will review your business needs.",
+    value: "Community inquiries welcome",
+    desc: "Share your message and our team will respond with the next helpful step.",
   },
   {
     icon: <Phone className="h-5 w-5" />,
     title: "Consultation",
     value: "Schedule a discussion",
-    desc: "Connect with our team to discuss sales, support, BPO, and technology solutions.",
+    desc: "Connect with us about volunteering, partnerships, events, and program support.",
   },
   {
     icon: <Globe className="h-5 w-5" />,
-    title: "Global Operations",
-    value: "USA · Canada · Bharat",
-    desc: "We support businesses with scalable delivery across multiple markets.",
+    title: "India Operations",
+    value: "India",
+    desc: "We support community programs and outreach initiatives across India.",
   },
 ]

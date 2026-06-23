@@ -4,9 +4,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
-import Services from "@/pages/Services";
-import Industries from "@/pages/Industries";
 import Contact from "@/pages/Contact";
+import Events from "@/pages/Events";
+import OurWork from "@/pages/OurWork";
+import WomenEmpowerment from "@/pages/WomenEmpowerment";
+import ChildEducation from "@/pages/ChildEducation";
+import HealthNutrition from "@/pages/HealthNutrition";
+import AnimalWelfare from "@/pages/AnimalWelfare";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -18,8 +22,12 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/services" component={Services} />
-          <Route path="/industries" component={Industries} />
+          <Route path="/events" component={Events} />
+          <Route path="/our-work" component={OurWork} />
+          <Route path="/women-empowerment" component={WomenEmpowerment} />
+          <Route path="/child-education" component={ChildEducation} />
+          <Route path="/health-nutrition" component={HealthNutrition} />
+          <Route path="/animal-welfare" component={AnimalWelfare} />
           <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>

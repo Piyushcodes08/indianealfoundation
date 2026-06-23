@@ -2,37 +2,71 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import {
   ArrowRight,
-  Search,
-  BarChart3,
-  Zap,
-  MapPin,
-  Globe,
   Sparkles,
+  ArrowUpRight,
+  HeartHandshake,
+  HandHeart,
+  Megaphone,
+  Sprout,
+  Users2,
+  Heart,
+  Zap,
   Target,
   Eye,
-  CheckCircle2,
-  Wifi,
-  Gauge,
-  DollarSign,
-  Layers3,
-  TrendingUp,
-  Building2,
-  ShieldCheck,
-  Clock,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { fadeUp, stagger } from "@/lib/animations";
-import { SectionLabel } from "@/components/shared";
-import {
-  stats,
-  coreValues,
-  capabilities,
-  howItWorks,
-  internetServices,
-  whyChoose,
-} from "@/data/about";
+import { SectionLabel, AnimatedCounter } from "@/components/shared";
 
 export default function About() {
+  const stats = [
+    { value: 350000, label: "People Helped since 2024", suffix: "+" },
+    { value: 120, label: "Unique Programs (4 focus areas)", suffix: "+" },
+    { value: 5000, label: "Volunteers Engaged (rural & urban)", suffix: "+" },
+  ];
+
+  const coreValues = [
+    {
+      title: "Compassion",
+      desc: "We believe genuine progress is built on compassion for all communities.",
+    },
+    {
+      title: "Empowerment",
+      desc: "We equip women, children, and vulnerable groups with tools and knowledge.",
+    },
+    {
+      title: "Community",
+      desc: "We foster strong communities through collaborative volunteer initiatives.",
+    },
+    {
+      title: "Sustainability",
+      desc: "We create lasting change through sustainable, long-term programs.",
+    },
+  ];
+
+  const focusAreas = [
+    {
+      icon: Heart,
+      title: "Women Empowerment",
+      desc: "Supporting women through education, skill development, and economic opportunities.",
+    },
+    {
+      icon: Users2,
+      title: "Child Education",
+      desc: "Providing quality education and mentorship to disadvantaged children.",
+    },
+    {
+      icon: Zap,
+      title: "Health & Nutrition",
+      desc: "Ensuring access to healthcare and nutritional support for vulnerable populations.",
+    },
+    {
+      icon: Sprout,
+      title: "Animal Welfare",
+      desc: "Promoting compassionate care and support for animals in communities.",
+    },
+  ];
+
   return (
     <div className="w-full overflow-x-hidden bg-background">
       {/* HERO */}
@@ -40,8 +74,8 @@ export default function About() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/about-hero-bg.webp"
-            alt="24X7NetConnect About Hero Background"
+            src="/about.png"
+            alt="Neal Foundation About Hero Background"
             className="h-full w-full object-cover"
           />
         </div>
@@ -66,24 +100,24 @@ export default function About() {
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-background/45 px-4 py-2 backdrop-blur-md">
                 <Sparkles className="h-4 w-4 text-primary" />
                 <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-                  About 24X7NetConnect
+                  About Neal Foundation
                 </span>
               </div>
             </motion.div>
 
-              <motion.h1
+            <motion.h1
               variants={fadeUp}
               className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
             >
-              Scalable Services for{" "}
-              <span className="text-gradient-brand">Business Growth</span>
+              Hope That Uplifts,{" "}
+              <span className="text-gradient-brand"> Support That Lasts</span>
             </motion.h1>
 
             <motion.p
               variants={fadeUp}
-              className="max-w-2xl text-base font-light leading-8 text-muted-foreground"
+              className="max-w-2xl text-base font-medium leading-8 text-gray-900"
             >
-              24X7NetConnect is your smart internet service comparison platform designed to help residential and business customers find the most reliable and cost-effective internet providers available at their location.
+              At the Neal Foundation, we believe that genuine progress is based on compassion. We are a community-based nonprofit organization committed to fostering hope and improving lives for women, children, the weak, and those without a voice.
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4 pt-2">
@@ -93,7 +127,7 @@ export default function About() {
                 className="h-12 rounded-md px-8 text-xs font-bold uppercase tracking-[0.14em] premium-glow"
               >
                 <Link href="/contact">
-                  Search Now <ArrowRight className="ml-2 h-4 w-4" />
+                  Join Us <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
 
@@ -103,17 +137,17 @@ export default function About() {
                 asChild
                 className="h-12 rounded-md border-primary/30 bg-background/35 px-8 text-xs font-bold uppercase tracking-[0.14em] backdrop-blur-md hover:bg-background/70"
               >
-                <a href="#how-it-works">Learn More</a>
+                <a href="#focus-areas">Learn More</a>
               </Button>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* WHAT WE DO */}
+      {/* ABOUT DETAILS */}
       <section className="relative overflow-hidden bg-background py-28 lg:py-32">
         <div className="absolute inset-0 dot-grid-light opacity-30" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
+        <div className="absolute right-0 top-0 h-[520px] w-[520px] rounded-full bg-primary/6 blur-[130px]" />
 
         <div className="container relative z-10 mx-auto px-6 lg:px-8">
           <motion.div
@@ -125,91 +159,68 @@ export default function About() {
           >
             <div>
               <motion.div variants={fadeUp} className="mb-6">
-                <SectionLabel>Our Platform</SectionLabel>
+                <SectionLabel>Our Foundation</SectionLabel>
               </motion.div>
 
               <motion.h2
                 variants={fadeUp}
                 className="mb-8 font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl"
               >
-                Simplifying{" "}
-                <em className="not-italic text-primary">
-                  Internet Comparison
-                </em>
+                Building <em className="not-italic text-primary">Hope Through Compassion</em>
               </motion.h2>
 
               <motion.p
                 variants={fadeUp}
                 className="mb-6 text-base font-light leading-relaxed text-muted-foreground"
               >
-                With just an address or ZIP code search, users can instantly compare internet service providers, available plans, speeds, pricing, coverage, and special offers from multiple providers in their area.
+                The Neal Foundation is a community-based nonprofit organization dedicated to creating positive social change across India. We believe that with dedicated volunteers, strategic programs, and compassionate leadership, we can transform lives and strengthen communities.
               </motion.p>
 
               <motion.p
                 variants={fadeUp}
                 className="mb-10 text-base font-light leading-relaxed text-muted-foreground"
               >
-                We empower consumers and businesses to make informed decisions by providing transparent comparisons, accurate pricing information, and location-based recommendations for finding the best internet connectivity solutions available.
+                Our work spans four critical focus areas: women empowerment, child education, health and nutrition, and animal welfare. By engaging volunteers and supporting grassroots initiatives, we create sustainable impact in every community we serve.
               </motion.p>
 
               <motion.div
                 variants={fadeUp}
                 className="grid grid-cols-1 gap-4 sm:grid-cols-2"
               >
-                {capabilities.map((item) => {
-                  const Icon = item.icon;
+                {coreValues.map((item) => (
+                  <div
+                    key={item.title}
+                    className="group relative overflow-hidden border border-border/70 bg-card/60 p-5 transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/[0.04]"
+                  >
+                    <div className="absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-primary transition-transform duration-500 group-hover:scale-y-100" />
 
-                  return (
-                    <div
-                      key={item.title}
-                      className="group relative overflow-hidden border border-border/70 bg-card/60 p-5 transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/[0.04]"
-                    >
-                      <div className="absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-primary transition-transform duration-500 group-hover:scale-y-100" />
+                    <h3 className="mb-2 font-serif text-lg font-bold text-foreground transition-colors duration-500 group-hover:text-primary">
+                      {item.title}
+                    </h3>
 
-                      <div className="mb-5 flex h-10 w-10 items-center justify-center border border-primary/25 bg-background text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-white">
-                        <Icon className="h-4 w-4" />
-                      </div>
-
-                      <h3 className="mb-2 font-serif text-lg font-bold text-foreground transition-colors duration-500 group-hover:text-primary">
-                        {item.title}
-                      </h3>
-
-                      <p className="text-sm font-light leading-relaxed text-muted-foreground">
-                        {item.desc}
-                      </p>
-                    </div>
-                  );
-                })}
+                    <p className="text-sm font-light leading-relaxed text-muted-foreground">
+                      {item.desc}
+                    </p>
+                  </div>
+                ))}
               </motion.div>
             </div>
 
             <motion.div variants={fadeUp} className="relative">
-              <div className="absolute -inset-px bg-gradient-to-br from-primary/25 via-border to-primary/10" />
-
-              <div className="relative overflow-hidden bg-card p-3 shadow-[0_32px_90px_rgba(0,0,0,0.12)]">
-                <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+              <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/70 p-3 shadow-2xl shadow-black/10 backdrop-blur-xl">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem] bg-muted">
                   <img
-                    src="/about-right.webp"
-                    alt="24X7NetConnect Internet Comparison"
-                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                    src="/about-r8.png"
+                    alt="Neal Foundation Team"
+                    className="object-cover w-full h-full scale-105 transition-transform duration-700 hover:scale-100"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-
-                  <div className="absolute bottom-6 left-6 right-6 border border-primary/20 bg-background/85 p-5 backdrop-blur-md">
-                    <div className="mb-3 flex items-center gap-3">
-                      <div className="flex h-9 w-9 items-center justify-center border border-primary/25 bg-primary/10 text-primary">
-                        <Globe className="h-4 w-4" />
-                      </div>
-
-                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
-                        Global Reach
-                      </p>
-                    </div>
-
-                    <p className="font-serif text-xl font-bold text-foreground">
-                      United States · Canada · Bharat
-                    </p>
+                  <div className="absolute top-6 right-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/25 bg-background/85 p-2 shadow-xl backdrop-blur-md logo-halo">
+                    <img
+                      src="/NealFoundation Logo.webp"
+                      alt="Neal Foundation"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                 </div>
               </div>
@@ -219,43 +230,52 @@ export default function About() {
       </section>
 
       {/* STATS */}
-      <section className="relative overflow-hidden bg-[#F7F4EE] py-20 lg:py-24">
+      <section className="relative overflow-hidden bg-[#F7F4EE] py-24 lg:py-28">
         <div className="absolute inset-0 dot-grid-light opacity-60" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,0,0,0.055),transparent_55%)]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
 
-        <div className="container relative z-10 mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-6">
+        <div className="container mx-auto px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className="group relative overflow-hidden border border-primary/10 bg-white/45 px-5 py-9 text-center shadow-[0_20px_60px_rgba(0,0,0,0.045)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-primary/25 hover:bg-white/70"
+                className="group relative overflow-hidden rounded-[28px] border border-primary/10 bg-white/45 px-5 py-10 text-center shadow-[0_20px_60px_rgba(0,0,0,0.045)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-primary/25 hover:bg-white/70 hover:shadow-[0_30px_90px_rgba(255,0,0,0.10)]"
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-primary/5 opacity-80" />
 
-                <div className="relative z-10">
-                  <div className="mx-auto mb-5 h-2 w-2 rotate-45 bg-primary/60 shadow-[0_0_18px_rgba(220,38,38,0.45)]" />
+                <div className="absolute top-0 left-1/2 h-px w-20 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-                  <div className="mb-4 font-serif text-5xl font-bold leading-none text-primary lg:text-6xl">
-                    {stat.value}
+                <div className="mx-auto mb-6 h-2 w-2 rotate-45 bg-primary/60 shadow-[0_0_18px_rgba(255,0,0,0.45)]" />
+
+                <div className="relative z-10">
+                  <div className="mb-4 [&_*:first-child]:font-serif [&_*:first-child]:text-5xl [&_*:first-child]:font-bold [&_*:first-child]:leading-none [&_*:first-child]:text-primary lg:[&_*:first-child]:text-6xl">
+                    <AnimatedCounter
+                      value={stat.value}
+                      label=""
+                      suffix={stat.suffix}
+                    />
                   </div>
 
                   <div className="mx-auto mb-4 h-px w-10 bg-gradient-to-r from-transparent via-primary/45 to-transparent" />
 
-                  <div className="text-[10px] font-bold uppercase tracking-[0.24em] text-foreground/70">
+                  <div className="text-[10px] font-bold uppercase tracking-[0.26em] text-foreground/70">
                     {stat.label}
                   </div>
                 </div>
+
+                <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section id="how-it-works" className="relative overflow-hidden bg-background py-28 lg:py-32">
+      {/* FOCUS AREAS */}
+      <section id="focus-areas" className="relative overflow-hidden bg-background py-28 lg:py-32">
         <div className="absolute inset-0 dot-grid-light opacity-30" />
-        <div className="absolute right-0 top-0 h-[520px] w-[520px] rounded-full bg-primary/6 blur-[130px]" />
+        <div className="absolute left-0 bottom-0 h-[520px] w-[520px] rounded-full bg-primary/6 blur-[130px]" />
 
         <div className="container relative z-10 mx-auto px-6 lg:px-8">
           <div className="mb-16 space-y-6">
@@ -265,7 +285,7 @@ export default function About() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7 }}
             >
-              <SectionLabel>Simple Process</SectionLabel>
+              <SectionLabel>Our Impact Areas</SectionLabel>
             </motion.div>
 
             <motion.h2
@@ -275,81 +295,17 @@ export default function About() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl"
             >
-              How 24X7NetConnect{" "}
-              <em className="not-italic text-primary">Works</em>
+              Four Pillars of <em className="not-italic text-primary">Change</em>
             </motion.h2>
           </div>
 
-          <div className="relative space-y-6">
-            <div className="absolute left-[17px] top-2 bottom-2 hidden w-px bg-gradient-to-b from-primary/40 via-border to-transparent sm:block" />
-
-            {howItWorks.map((step, i) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, x: 18 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{
-                  delay: i * 0.09,
-                  duration: 0.55,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="group relative flex gap-5 sm:gap-7"
-              >
-                <div className="relative z-10 mt-1 flex h-9 w-9 flex-shrink-0 items-center justify-center border border-primary/25 bg-muted text-[11px] font-serif font-bold italic text-primary/55 transition-all duration-500 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
-                  {step.n}
-                </div>
-
-                <div className="flex-1 border-t border-border/80 pt-5 transition-all duration-500 group-hover:border-primary/45">
-                  <h4 className="mb-2 font-serif text-lg font-bold text-foreground transition-colors duration-500 group-hover:text-primary">
-                    {step.title}
-                  </h4>
-
-                  <p className="text-sm font-light leading-relaxed text-muted-foreground">
-                    {step.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* INTERNET SERVICES */}
-      <section className="relative overflow-hidden bg-muted py-28 lg:py-32">
-        <div className="absolute inset-0 dot-grid-light opacity-50" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-
-        <div className="container relative z-10 mx-auto px-6 lg:px-8">
-          <div className="mb-16 space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7 }}
-            >
-              <SectionLabel>Internet Types</SectionLabel>
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl"
-            >
-              Services We Help{" "}
-              <em className="not-italic text-primary">You Compare</em>
-            </motion.h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-px bg-border/70 md:grid-cols-3">
-            {internetServices.map((service, i) => {
-              const Icon = service.icon;
+          <div className="grid grid-cols-1 gap-px bg-border/70 md:grid-cols-2 lg:grid-cols-4">
+            {focusAreas.map((area, i) => {
+              const Icon = area.icon;
 
               return (
                 <motion.div
-                  key={service.title}
+                  key={area.title}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
@@ -367,23 +323,12 @@ export default function About() {
                   </div>
 
                   <h3 className="mb-2 font-serif text-xl font-bold text-foreground transition-colors duration-500 group-hover:text-primary">
-                    {service.title}
+                    {area.title}
                   </h3>
 
-                  <p className="mb-4 text-sm font-light leading-relaxed text-muted-foreground">
-                    {service.desc}
+                  <p className="text-sm font-light leading-relaxed text-muted-foreground">
+                    {area.desc}
                   </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.map((feature) => (
-                      <span
-                        key={feature}
-                        className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary transition-all duration-500 group-hover:bg-primary/20"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
                 </motion.div>
               );
             })}
@@ -391,72 +336,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* WHY CHOOSE */}
-      <section className="relative overflow-hidden bg-background py-28 lg:py-32">
-        <div className="absolute inset-0 dot-grid-light opacity-30" />
-        <div className="absolute left-0 bottom-0 h-[520px] w-[520px] rounded-full bg-primary/6 blur-[130px]" />
-
-        <div className="container relative z-10 mx-auto px-6 lg:px-8">
-          <div className="mb-16 grid grid-cols-1 items-end gap-8 lg:grid-cols-2 lg:gap-24">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={stagger}
-              className="space-y-6"
-            >
-              <motion.div variants={fadeUp}>
-                <SectionLabel>Why Choose Us</SectionLabel>
-              </motion.div>
-
-              <motion.h2
-                variants={fadeUp}
-                className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl"
-              >
-                Why Choose{" "}
-                <em className="not-italic text-primary">24X7NetConnect</em>
-              </motion.h2>
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.65 }}
-              className="max-w-md text-sm font-light leading-relaxed text-muted-foreground lg:justify-self-end"
-            >
-              Our platform simplifies internet comparison, saving you time and money while helping you find the perfect connectivity solution for your home or business.
-            </motion.p>
-          </div>
-
-          <div className="border-y border-border/70">
-            {whyChoose.map((reason, i) => (
-              <motion.div
-                key={reason}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{
-                  delay: i * 0.06,
-                  duration: 0.55,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="group relative flex gap-5 overflow-hidden border-b border-border/60 px-1 py-6 transition-all duration-500 last:border-b-0 hover:bg-background/45 sm:px-4"
-              >
-                <div className="absolute left-0 top-0 h-full w-[2px] origin-top scale-y-0 bg-primary transition-transform duration-500 group-hover:scale-y-100" />
-
-                <CheckCircle2 className="relative z-10 h-5 w-5 flex-shrink-0 text-primary transition-all duration-500 group-hover:scale-110" />
-
-                <p className="relative z-10 text-base font-light text-foreground transition-colors duration-500 group-hover:text-primary">
-                  {reason}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* OUR MISSION */}
+      {/* MISSION & VISION */}
       <section className="relative overflow-hidden bg-muted py-28 lg:py-32">
         <div className="absolute inset-0 dot-grid-light opacity-30" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
@@ -467,14 +347,14 @@ export default function About() {
               {
                 icon: Target,
                 label: "Our Mission",
-                title: "Simplifying Internet Selection",
-                desc: "Our mission is to simplify the process of choosing an internet provider by providing transparent comparisons, accurate pricing information, and location-based recommendations. We empower consumers and businesses to make informed decisions and find the best internet connectivity solutions.",
+                title: "Hope & Empowerment",
+                desc: "To foster hope and improve lives for women, children, vulnerable populations, and those without a voice. We empower communities through education, healthcare, economic opportunities, and compassionate care.",
               },
               {
                 icon: Eye,
                 label: "Our Vision",
-                title: "Connected Communities",
-                desc: "Our vision is to be the leading internet provider comparison platform that connects people with the best internet solutions in their area. We're committed to making quality internet access simple, affordable, and accessible to everyone.",
+                title: "Strong Communities",
+                desc: "A world where every individual in vulnerable communities has access to education, healthcare, economic opportunity, and dignity. Where compassionate volunteers work together to create lasting positive change.",
               },
             ].map((item, i) => {
               const Icon = item.icon;
@@ -523,6 +403,108 @@ export default function About() {
         </div>
       </section>
 
+      {/* MEET OUR FOUNDER */}
+      <section className="relative overflow-hidden bg-background py-28 lg:py-32">
+        <div className="absolute inset-0 dot-grid-light opacity-30" />
+        <div className="absolute right-0 top-0 h-[520px] w-[520px] rounded-full bg-primary/6 blur-[130px]" />
+        <div className="absolute left-0 bottom-0 h-[420px] w-[420px] rounded-full bg-primary/8 blur-[120px]" />
+
+        <div className="container relative z-10 mx-auto px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+            className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-24"
+          >
+            <motion.div variants={fadeUp} className="relative">
+              <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/70 p-3 shadow-2xl shadow-black/10 backdrop-blur-xl">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem] bg-muted">
+                  <img
+                    src="/founder.png"
+                    alt="Vahlay Patel, Founder of Neal Foundation"
+                    className="object-cover w-full h-full scale-105 transition-transform duration-700 hover:scale-100"
+                  />
+
+                  <div className="absolute top-6 right-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/25 bg-background/85 p-2 shadow-xl backdrop-blur-md logo-halo">
+                    <img
+                      src="/NealFoundation Logo.webp"
+                      alt="Neal Foundation"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <div>
+              <motion.div variants={fadeUp} className="mb-6">
+                <SectionLabel>Our Founder</SectionLabel>
+              </motion.div>
+
+              <motion.h2
+                variants={fadeUp}
+                className="mb-6 font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl"
+              >
+                Vahlay Patel
+              </motion.h2>
+
+              <motion.div variants={fadeUp} className="mb-8 flex items-center gap-4">
+                <div className="w-14 h-px bg-primary" />
+                <div className="w-2 h-2 rounded-full bg-primary" />
+                <div className="w-24 h-px bg-gradient-to-r from-primary/60 to-transparent" />
+              </motion.div>
+
+              <motion.p
+                variants={fadeUp}
+                className="mb-6 text-base font-light leading-relaxed text-muted-foreground"
+              >
+                Vahlay Patel is the visionary founder of Neal Foundation, driven by a deep commitment to creating meaningful social change in communities across India. With a passion for compassion and a dedication to empowering the vulnerable, Vahlay has built Neal Foundation on the principles of hope, dignity, and sustainable development.
+              </motion.p>
+
+              <motion.p
+                variants={fadeUp}
+                className="mb-8 text-base font-light leading-relaxed text-muted-foreground"
+              >
+                Under Vahlay's leadership, Neal Foundation has grown to touch the lives of over 350,000 people through four strategic focus areas: women empowerment, child education, health and nutrition, and animal welfare. His vision is to create a world where every vulnerable individual has access to education, opportunity, and dignity.
+              </motion.p>
+
+              <motion.div variants={fadeUp} className="space-y-3">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-primary/25 bg-primary/10">
+                    <HeartHandshake className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">Compassionate Leadership</p>
+                    <p className="text-sm text-muted-foreground">Leading with empathy and genuine care for communities</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-primary/25 bg-primary/10">
+                    <Sprout className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">Sustainable Impact</p>
+                    <p className="text-sm text-muted-foreground">Building long-term programs that create lasting change</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-primary/25 bg-primary/10">
+                    <Users2 className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">Community Driven</p>
+                    <p className="text-sm text-muted-foreground">Empowering volunteers and local initiatives</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="relative overflow-hidden bg-background py-28 lg:py-32">
         <div className="absolute inset-0 dot-grid-light opacity-35" />
@@ -541,17 +523,15 @@ export default function About() {
             <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-primary/[0.045] blur-[90px]" />
 
             <div className="relative z-10 mx-auto max-w-3xl space-y-7">
-              <div className="flex justify-center">
-                <SectionLabel>Ready to Find?</SectionLabel>
-              </div>
+              <SectionLabel>Join Our Mission</SectionLabel>
 
               <h2 className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl">
-                Search. Compare. <br />
-                <em className="not-italic text-primary">Connect.</em>
+                Together We <br />
+                <em className="not-italic text-primary">Create Change</em>
               </h2>
 
               <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-muted-foreground">
-                Enter your address or ZIP code today and discover the best internet provider for your home or business with 24X7NetConnect.
+                Every volunteer, every contribution, and every act of compassion brings us closer to our vision of stronger, more empowered communities. Join us today and be part of the change.
               </p>
 
               <div className="flex flex-wrap justify-center gap-4 pt-2">
@@ -561,7 +541,7 @@ export default function About() {
                   className="h-12 rounded-md px-8 text-xs font-bold uppercase tracking-[0.14em] premium-glow"
                 >
                   <Link href="/contact">
-                    Start Searching <ArrowRight className="ml-2 h-4 w-4" />
+                    Get Involved <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
 
@@ -569,9 +549,9 @@ export default function About() {
                   size="lg"
                   variant="outline"
                   asChild
-                  className="h-12 rounded-md border-primary/25 px-8 text-xs font-bold uppercase tracking-[0.14em]"
+                  className="h-12 rounded-md border-primary/30 bg-background/35 px-8 text-xs font-bold uppercase tracking-[0.14em] backdrop-blur-md hover:bg-background/70"
                 >
-                  <Link href="/">Back to Home</Link>
+                  <Link href="/contact">Learn More</Link>
                 </Button>
               </div>
             </div>
