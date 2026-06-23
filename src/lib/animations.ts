@@ -1,13 +1,10 @@
-export const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-  },
-}
+/**
+ * lib/animations.ts — Compatibility shim
+ * Re-exports from the canonical location: src/utils/animations.ts
+ *
+ * This file is intentionally kept so that all pages importing
+ * "@/lib/animations" continue to work without changes.
+ * New code should import from "@/utils/animations" directly.
+ */
 
-export const stagger = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
-}
+export { fadeUp, stagger } from "@/utils/animations"

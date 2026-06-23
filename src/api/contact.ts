@@ -1,6 +1,8 @@
-import type { ContactFormValues } from "@/data/contact"
+/**
+ * api/contact.ts — Compatibility shim
+ * Re-exports from the canonical src/services/contact.ts
+ *
+ * Kept for backward compatibility. New code should import from "@/services/contact" directly.
+ */
 
-export async function submitContactForm(data: ContactFormValues) {
-  console.log("submitContactForm", data)
-  return Promise.resolve({ success: true })
-}
+export { submitContactForm } from "@/services/contact"
