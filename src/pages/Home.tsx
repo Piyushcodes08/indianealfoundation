@@ -141,7 +141,7 @@ export default function Home() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           {galleryImages.map((src, i) => (
             <button key={src} onClick={() => openAt(i)} className="group overflow-hidden rounded-lg">
-              <img src={src} alt={`Gallery ${i + 1}`} className="h-36 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <img loading="lazy" src={src} alt={`Gallery ${i + 1}`} className="h-36 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
             </button>
           ))}
         </div>
@@ -150,7 +150,7 @@ export default function Home() {
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
             <div className="relative max-w-4xl w-full px-4">
               <button onClick={() => setOpen(false)} className="absolute top-3 right-3 z-50 rounded-full bg-white/10 px-3 py-1 text-white">✕</button>
-              <img src={galleryImages[activeIndex]} alt="Active" className="mx-auto max-h-[70vh] w-auto object-contain rounded-md" />
+              <img loading="lazy" src={galleryImages[activeIndex]} alt="Active" className="mx-auto max-h-[70vh] w-auto object-contain rounded-md" />
 
               <div className="absolute left-4 top-1/2 -translate-y-1/2">
                 <button onClick={prev} className="rounded-full bg-white/10 p-2 text-white">◀</button>
@@ -447,6 +447,7 @@ Read More
         <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/70 p-3 shadow-2xl shadow-black/10 backdrop-blur-xl">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem] bg-muted">
             <img
+              loading="lazy"
               src="/about-r88.webp"
               alt="Corporate team at Neal Foundation"
               className="object-cover w-full h-full scale-105 transition-transform duration-700 hover:scale-100"

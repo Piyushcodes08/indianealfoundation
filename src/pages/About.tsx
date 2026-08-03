@@ -213,6 +213,7 @@ export default function About() {
               <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/70 p-3 shadow-2xl shadow-black/10 backdrop-blur-xl">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem] bg-muted">
                   <img
+                    loading="lazy"
                     src="/about-r8.webp"
                     alt="Neal Foundation Team"
                     className="object-cover w-full h-full scale-105 transition-transform duration-700 hover:scale-100"
