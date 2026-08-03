@@ -67,7 +67,7 @@ export default function Home() {
     category: "Community Service",
     description:
       "Serving refreshing chhas as a selfless service to support people during the summer season.",
-    image: "/chhasimg.png",
+    image: "/chhasimg.webp",
     location: "Ahmedabad, Gujarat",
     href: "/events/chhas-seva",
   },
@@ -80,7 +80,7 @@ export default function Home() {
     category: "Food & Refreshment",
     description:
       "Distributing refreshing drinks with compassion and care to people in the local community.",
-    image: "/sarbatseva.jpg",
+    image: "/sarbatseva.webp",
     location: "Ahmedabad, Gujarat",
     href: "/events/sharbat-seva",
   },
@@ -106,7 +106,7 @@ export default function Home() {
     category: "Community Initiative",
     description:
       "Bringing volunteers together to promote cleanliness, awareness, and healthier public spaces.",
-    image: "/WomenEmpowerment.jpg",
+    image: "/WomenEmpowerment.webp",
     location: "Ahmedabad, Gujarat",
     href: "/events/swacchata-abhiyan",
   },
@@ -117,12 +117,12 @@ export default function Home() {
   // Gallery state and component
   const Gallery = () => {
     const galleryImages = [
-      "/gallery/bgimg1.jpg",
-      "/gallery/healthcare%20(2).jpg",
-      "/gallery/IMG-20250425-WA0113.jpg",
-      "/gallery/IMG-20250425-WA0178.jpg",
-      "/gallery/IMG-20250425-WA0182.jpg",
-      "/gallery/womenEmpowerment%20(2).jpg",
+      "/gallery/bgimg1.webp",
+      "/gallery/healthcare%20(2).webp",
+      "/gallery/IMG-20250425-WA0113.webp",
+      "/gallery/IMG-20250425-WA0178.webp",
+      "/gallery/IMG-20250425-WA0182.webp",
+      "/gallery/womenEmpowerment%20(2).webp",
     ];
 
     const [open, setOpen] = useState(false);
@@ -177,7 +177,7 @@ export default function Home() {
   {/* Background Image */}
   <div className="absolute inset-0">
     <img
-      src="/landing.png"
+      src="/landing.webp"
       alt="Neal Foundation Hero Background"
       className="h-full w-full object-cover"
     />
@@ -213,9 +213,9 @@ export default function Home() {
         variants={fadeUp}
         className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
       >
-        <span className="block">Care Beyond Boundaries -</span>
+        <span className="block ">Care Beyond Boundaries -</span>
 
-        <span className="block text-gradient-brand lg:text-4xl sm:text-3xl text-2xl font-semibold tracking-tight leading-16">
+        <span className="block text-gradient-brand lg:text-4xl sm:text-2xl text-xl font-semibold tracking-tight leading-16">
          Touching Lives Every Day
         </span>
 
@@ -355,10 +355,10 @@ export default function Home() {
           variants={fadeUp}
           className="font-serif font-bold text-foreground leading-[1.02] tracking-tight"
         >
-          <span className="block text-2xl sm:text-3xl lg:text-5xl">
+          <span className="block text-xl sm:text-2xl lg:text-4xl">
         Care That Empowers,
           </span>
-          <span className="block mt-2 text-2xl sm:text-3xl lg:text-5xl">
+          <span className="block mt-2 text-xl sm:text-2xl lg:text-4xl">
             <em className="not-italic bg-gradient-to-r from-primary via-primary/80 to-foreground bg-clip-text text-transparent">
              Support That Transforms
             </em>
@@ -447,7 +447,7 @@ Read More
         <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/70 p-3 shadow-2xl shadow-black/10 backdrop-blur-xl">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem] bg-muted">
             <img
-              src="/about-r88.png"
+              src="/about-r88.webp"
               alt="Corporate team at Neal Foundation"
               className="object-cover w-full h-full scale-105 transition-transform duration-700 hover:scale-100"
               data-testid="img-about"
@@ -559,10 +559,10 @@ Read More
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
         <motion.h2
           variants={fadeUp}
-          className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl leading-[1.06] max-w-3xl text-foreground"
+          className="font-serif font-bold text-xl sm:text-2xl lg:text-4xl leading-[1.06] max-w-3xl text-foreground"
         >
       Creating Change Where <br />
-          <em className="not-italic text-primary">It Matters Most</em>
+          <em className="not-italic bg-gradient-to-r from-primary via-primary/80 to-foreground bg-clip-text text-transparent">It Matters Most</em>
         </motion.h2>
 
         <motion.p
@@ -685,9 +685,9 @@ Read More
           >
             <SectionLabel>Events & Initiatives</SectionLabel>
 
-            <h2 className="mt-7 font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-6xl">
+            <h2 className="mt-7 font-serif text-xl font-bold leading-[1.06] text-foreground sm:text-2xl lg:text-4xl">
               Moments of Compassion,
-              <span className="block text-primary">
+              <span className="block not-italic bg-gradient-to-r from-primary via-primary/80 to-foreground bg-clip-text text-transparent">
                 Creating Lasting Change
               </span>
             </h2>
@@ -882,7 +882,7 @@ Read More
           <motion.div variants={fadeUp} className="mb-4">
             <SectionLabel>Gallery</SectionLabel>
           </motion.div>
-          <motion.h2 variants={fadeUp} className="font-serif text-3xl font-bold text-foreground">
+          <motion.h2 variants={fadeUp} className="font-serif text-xl sm:text-2xl lg:text-4xl font-bold text-foreground">
             Moments From Our Work
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 text-muted-foreground max-w-xl">
@@ -913,9 +913,9 @@ Read More
         >
           <motion.div variants={fadeUp} className="max-w-3xl">
             <SectionLabel>Co-Partner</SectionLabel>
-            <h2 className="mt-6 font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl">
+            <h2 className="mt-6 font-serif text-xl font-bold leading-[1.06] text-foreground sm:text-2xl lg:text-4xl">
               Lakhya Foundation
-              <span className="block text-primary">Driving Impact Together</span>
+              <span className="block not-italic bg-gradient-to-r from-primary via-primary/80 to-foreground bg-clip-text text-transparent">Driving Impact Together</span>
             </h2>
             <p className="mt-6 max-w-2xl text-sm font-light leading-7 text-muted-foreground sm:text-base">
               Our strategic co-partnership with Lakhya Foundation empowers community initiatives and expands our ability to deliver sustainable impact across India.
@@ -996,10 +996,10 @@ Read More
 
               <motion.h2
                 variants={fadeUp}
-                className="font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl"
+                className="font-serif text-xl font-bold leading-[1.06] text-foreground sm:text-2xl lg:text-4xl"
               >
                 Start a Conversation <br />
-                <em className="not-italic text-primary">With Our Team</em>
+                <em className="not-italic bg-gradient-to-r from-primary via-primary/80 to-foreground bg-clip-text text-transparent">With Our Team</em>
               </motion.h2>
             </motion.div>
 

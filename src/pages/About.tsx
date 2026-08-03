@@ -74,7 +74,7 @@ export default function About() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/about.png"
+            src="/about.webp"
             alt="Neal Foundation About Hero Background"
             className="h-full w-full object-cover"
           />
@@ -213,7 +213,7 @@ export default function About() {
               <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/70 p-3 shadow-2xl shadow-black/10 backdrop-blur-xl">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem] bg-muted">
                   <img
-                    src="/about-r8.png"
+                    src="/about-r8.webp"
                     alt="Neal Foundation Team"
                     className="object-cover w-full h-full scale-105 transition-transform duration-700 hover:scale-100"
                   />
@@ -406,7 +406,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* MEET OUR FOUNDER */}
+      {/* OUR COMMUNITY */}
       <section className="relative overflow-hidden bg-background py-28 lg:py-32">
         <div className="absolute inset-0 dot-grid-light opacity-30" />
         <div className="absolute right-0 top-0 h-[520px] w-[520px] rounded-full bg-primary/6 blur-[130px]" />
@@ -424,8 +424,8 @@ export default function About() {
               <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/70 p-3 shadow-2xl shadow-black/10 backdrop-blur-xl">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem] bg-muted">
                   <img
-                    src="/founder.png"
-                    alt="Vahlay Patel, Founder of Neal Foundation"
+                    src="/community.webp"
+                    alt="Community volunteers working together"
                     className="object-cover w-full h-full scale-105 transition-transform duration-700 hover:scale-100"
                   />
 
@@ -442,14 +442,14 @@ export default function About() {
 
             <div>
               <motion.div variants={fadeUp} className="mb-6">
-                <SectionLabel>Our Founder</SectionLabel>
+                <SectionLabel>Our Community</SectionLabel>
               </motion.div>
 
               <motion.h2
                 variants={fadeUp}
                 className="mb-6 font-serif text-3xl font-bold leading-[1.06] text-foreground sm:text-4xl lg:text-5xl"
               >
-                Vahlay Patel
+                People Powering Change
               </motion.h2>
 
               <motion.div variants={fadeUp} className="mb-8 flex items-center gap-4">
@@ -462,14 +462,14 @@ export default function About() {
                 variants={fadeUp}
                 className="mb-6 text-base font-light leading-relaxed text-muted-foreground"
               >
-                Vahlay Patel is the visionary founder of Neal Foundation, driven by a deep commitment to creating meaningful social change in communities across India. With a passion for compassion and a dedication to empowering the vulnerable, Vahlay has built Neal Foundation on the principles of hope, dignity, and sustainable development.
+                The Neal Foundation is driven by the communities we serve and the volunteers who show up every day. Together, we build trust, create opportunity, and support vulnerable groups with care.
               </motion.p>
 
               <motion.p
                 variants={fadeUp}
                 className="mb-8 text-base font-light leading-relaxed text-muted-foreground"
               >
-                Under Vahlay's leadership, Neal Foundation has grown to touch the lives of over 350,000 people through four strategic focus areas: women empowerment, child education, health and nutrition, and animal welfare. His vision is to create a world where every vulnerable individual has access to education, opportunity, and dignity.
+                Through grassroots partnerships, education programs, health initiatives, and animal welfare work, our collective action stretches across India to bring sustainable, people-centered impact.
               </motion.p>
 
               <motion.div variants={fadeUp} className="space-y-3">
@@ -478,8 +478,8 @@ export default function About() {
                     <HeartHandshake className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">Compassionate Leadership</p>
-                    <p className="text-sm text-muted-foreground">Leading with empathy and genuine care for communities</p>
+                    <p className="font-semibold text-foreground">Compassionate Volunteers</p>
+                    <p className="text-sm text-muted-foreground">Every effort is rooted in empathy and real community care.</p>
                   </div>
                 </div>
 
@@ -488,8 +488,8 @@ export default function About() {
                     <Sprout className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">Sustainable Impact</p>
-                    <p className="text-sm text-muted-foreground">Building long-term programs that create lasting change</p>
+                    <p className="font-semibold text-foreground">Sustainable Programs</p>
+                    <p className="text-sm text-muted-foreground">We nurture long-term solutions that uplift families and neighborhoods.</p>
                   </div>
                 </div>
 
@@ -498,8 +498,8 @@ export default function About() {
                     <Users2 className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">Community Driven</p>
-                    <p className="text-sm text-muted-foreground">Empowering volunteers and local initiatives</p>
+                    <p className="font-semibold text-foreground">Local Partnerships</p>
+                    <p className="text-sm text-muted-foreground">We work hand-in-hand with local leaders and volunteers for stronger outcomes.</p>
                   </div>
                 </div>
               </motion.div>

@@ -64,7 +64,7 @@ export default function Contact() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-[position:center_right]"
           style={{
-            backgroundImage: "url('/contact.png')",
+            backgroundImage: "url('/contact.webp')",
           }}
         />
 
@@ -323,8 +323,8 @@ export default function Contact() {
                             </FormLabel>
                             <FormControl>
                               <Input
-                                className="h-12 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-4 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
-                                placeholder="John Doe"
+                                className="h-12 rounded-none capitalize border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-4 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
+                                placeholder="piyush gond"
                                 data-testid="input-name"
                                 {...field}
                               />
@@ -390,7 +390,7 @@ export default function Contact() {
                             <FormControl>
                               <Input
                                 className="h-12 rounded-none border-b border-l-0 border-r-0 border-t-0 border-border bg-transparent px-4 text-sm transition-colors focus-visible:border-primary focus-visible:ring-0"
-                                placeholder="+1 (555) 000-0000"
+                                placeholder="+91 00000 00000"
                                 data-testid="input-phone"
                                 {...field}
                               />

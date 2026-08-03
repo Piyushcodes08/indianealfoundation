@@ -51,7 +51,7 @@ const ALL_EVENTS: Event[] = [
       "Serving refreshing chhas as a selfless service to support people during the summer season.",
     longDesc:
       "During the scorching summer months, Neal Foundation volunteers set up Chhas (buttermilk) distribution camps across busy public areas in Ahmedabad. This initiative not only provides cooling relief to pedestrians, laborers, and commuters, but also promotes hydration awareness and the spirit of selfless community giving.",
-    image: "/chhasimg.png",
+    image: "/chhasimg.webp",
     location: "Ahmedabad, Gujarat",
     volunteers: 45,
     duration: "6 Hours",
@@ -68,7 +68,7 @@ const ALL_EVENTS: Event[] = [
       "Distributing refreshing drinks with compassion and care to people in the local community.",
     longDesc:
       "As temperatures soared, our volunteers distributed fresh sharbat (flavored drinks) across key localities in Ahmedabad. With a focus on underprivileged neighborhoods and construction sites, the Sharbat Seva served as a powerful gesture of solidarity and care from Neal Foundation to the community at large.",
-    image: "/sarbatseva.jpg",
+    image: "/sarbatseva.webp",
     location: "Ahmedabad, Gujarat",
     volunteers: 30,
     duration: "5 Hours",
@@ -102,7 +102,7 @@ const ALL_EVENTS: Event[] = [
       "Celebrating and supporting women's education, skills, and economic opportunities.",
     longDesc:
       "On International Women's Day, Neal Foundation organized an empowerment program celebrating women achievers and equipping underprivileged women with the knowledge and tools needed for economic independence. Sessions on financial literacy, vocational training guidance, self-defense awareness, and legal rights were conducted by expert speakers.",
-    image: "/WomenEmpowerment.jpg",
+    image: "/WomenEmpowerment.webp",
     location: "Ahmedabad, Gujarat",
     volunteers: 60,
     duration: "8 Hours",
@@ -119,7 +119,7 @@ const ALL_EVENTS: Event[] = [
       "Hands-on skills training in stitching, handicrafts, and beauty services for self-reliance.",
     longDesc:
       "This multi-day vocational workshop equipped women from low-income households with practical skills to earn a sustainable livelihood. Conducted by certified trainers, participants were trained in tailoring, handicraft production, henna design, and beauty treatments — all in high demand in local markets and enabling home-based entrepreneurship.",
-    image: "/ladies.png",
+    image: "/ladies.webp",
     location: "Ahmedabad, Gujarat",
     volunteers: 25,
     duration: "3 Days",
@@ -136,7 +136,7 @@ const ALL_EVENTS: Event[] = [
       "Distributing school bags, books, and stationery to underprivileged children on Independence Day.",
     longDesc:
       "In celebration of India's Independence Day, Neal Foundation distributed complete school kits — including bags, notebooks, pencils, erasers, and water bottles — to over 500 children from underprivileged families. The drive aimed to remove financial barriers from education and motivate children to pursue their academic dreams.",
-    image: "/ChildEduction.jpeg",
+    image: "/ChildEduction.webp",
     location: "Ahmedabad, Gujarat",
     volunteers: 80,
     duration: "1 Day",
@@ -153,7 +153,7 @@ const ALL_EVENTS: Event[] = [
       "Teaching kids computer basics, internet safety, and digital tools for modern education.",
     longDesc:
       "In today's digitally-driven world, tech literacy is a foundational skill. Our Digital Literacy Workshop introduced school-going children from government schools to computer basics, internet browsing for learning, typing, and essential apps. Special sessions on cybersafety ensured children navigated the online world confidently and responsibly.",
-    image: "/study.png",
+    image: "/study.webp",
     location: "Ahmedabad, Gujarat",
     volunteers: 18,
     duration: "2 Days",
@@ -170,7 +170,7 @@ const ALL_EVENTS: Event[] = [
       "Providing nutritional supplements and food packets to malnourished families and children.",
     longDesc:
       "Malnutrition remains a serious challenge in many communities. Our volunteers distributed nutrition kits — containing pulses, fortified grain, cooking oil, and vitamin supplements — to identified malnourished families. A nutritionist guided families on balanced diet planning and the importance of micronutrient intake for child development.",
-    image: "/health.png",
+    image: "/health.webp",
     location: "Ahmedabad, Gujarat",
     volunteers: 35,
     duration: "1 Day",
@@ -187,7 +187,7 @@ const ALL_EVENTS: Event[] = [
       "Free veterinary care, vaccination, and food distribution for stray animals across the city.",
     longDesc:
       "In collaboration with local veterinarians and animal welfare NGOs, Neal Foundation organized a comprehensive Stray Animal Care Camp. Hundreds of stray dogs and cats received vaccinations, wound treatment, and deworming. Volunteers also distributed food and water, and educated bystanders on responsible treatment of animals.",
-    image: "/dog.jpg",
+    image: "/dog.webp",
     location: "Ahmedabad, Gujarat",
     volunteers: 40,
     duration: "Full Day",
@@ -282,7 +282,7 @@ export default function Events() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/event.png"
+            src="/event.webp"
             alt="Neal Foundation Events Hero Background"
             className="h-full w-full object-cover"
           />

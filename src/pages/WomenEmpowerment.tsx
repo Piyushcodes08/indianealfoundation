@@ -35,7 +35,7 @@ export default function WomenEmpowerment() {
       <section className="relative flex min-h-[100vh] items-end overflow-hidden bg-background pb-20 pt-36">
         <div className="absolute inset-0">
           <img
-            src="/ladies.png"
+            src="/ladies.webp"
             alt="Women Empowerment"
             className="h-full w-full object-cover"
           />
