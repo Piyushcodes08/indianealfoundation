@@ -2,9 +2,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
+import compression from "vite-plugin-compression";
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss(), compression({ algorithm: 'brotliCompress', ext: '.br', threshold: 10240 }), compression({ algorithm: 'gzip', ext: '.gz', threshold: 10240 })],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
