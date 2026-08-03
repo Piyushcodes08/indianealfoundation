@@ -22,14 +22,17 @@ export default defineConfig({
         manualChunks(id) {
           if (!id) return;
           if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom')) return 'vendor-react';
             if (id.includes('framer-motion')) return 'vendor-motion';
-            if (id.includes('lucide-react') || id.includes('@radix-ui')) return 'vendor-ui';
             if (id.includes('swiper')) return 'vendor-swiper';
+            if (id.includes('lucide-react') || id.includes('@radix-ui')) return 'vendor-ui';
             return 'vendor';
           }
         },
       },
     },
+  },
+  // Target modern browsers to avoid unnecessary transpilation/polyfills
+  esbuild: {
+    target: 'es2022'
   },
 });
