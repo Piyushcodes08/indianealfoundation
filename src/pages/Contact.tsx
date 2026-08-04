@@ -61,14 +61,12 @@ export default function Contact() {
     <div className="w-full overflow-x-hidden bg-background">
       {/* HERO */}
       <section className="relative flex min-h-[100vh] items-end overflow-hidden bg-background pb-0 pt-32">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-[position:center_right]"
-          style={{
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-[position:center_right]" style={{
             backgroundImage: "url('/contact.webp')",
           }}
-        />
-
-   
+        >
+          <div className="absolute inset-0 bg-black/40 sm:bg-black/35 md:bg-black/30" />
+        </div>
 
         <div className="absolute inset-0 dot-grid-light opacity-25" />
         <div className="absolute right-0 top-0 h-[660px] w-[660px] rounded-full bg-primary/15 blur-[155px]" />
@@ -95,7 +93,7 @@ export default function Contact() {
 
             <motion.h1
               variants={fadeUp}
-              className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
+              className="font-serif font-bold display-hero text-white w-full max-w-3xl lg:w-2/3"
             >
               Let&apos;s Connect With {" "}
               <span className="text-gradient-brand">Purpose</span>

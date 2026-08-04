@@ -316,7 +316,7 @@ export default function Events() {
 
              <motion.h1
                     variants={fadeUp}
-                    className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
+                    className="font-serif font-bold display-hero text-white w-full max-w-3xl lg:w-2/3"
                   >
                     <span className="block">Hands That Help,</span>
             

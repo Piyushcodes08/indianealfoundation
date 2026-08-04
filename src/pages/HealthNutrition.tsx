@@ -39,6 +39,7 @@ export default function HealthNutrition() {
             alt="Health & Nutrition"
             className="h-full w-full object-cover"
           />
+          <div className="absolute inset-0 bg-black/40 sm:bg-black/35 md:bg-black/30" />
         </div>
 
         <div className="absolute inset-0 dot-grid-light opacity-25" />
@@ -67,7 +68,7 @@ export default function HealthNutrition() {
             
  <motion.h1
                     variants={fadeUp}
-                    className="font-serif font-bold display-hero text-foreground w-full max-w-3xl lg:w-2/3"
+                    className="font-serif font-bold display-hero text-white w-full max-w-3xl lg:w-2/3"
                   >
                     <span className="block"> Nurturing Healthy - </span>
             
