@@ -169,41 +169,53 @@ export default function Home() {
     <div className="w-full overflow-x-hidden">
 
       {/* ─── HERO ─── */}
-    <section
+   <section
   id="home"
-  className="relative flex min-h-dvh items-end overflow-hidden bg-background pb-0 pt-32"
+  className="relative flex min-h-dvh items-center overflow-hidden bg-background pt-32"
   data-testid="section-hero"
 >
   {/* Background Image */}
   <div className="absolute inset-0">
     <img
       src="/landing.webp"
-      alt="Neal Foundation Hero Background"
-      className="h-full w-full object-cover"
+      alt="Neal Foundation community initiatives"
+      className="h-full w-full object-cover object-center"
     />
-    <div className="absolute inset-0 bg-black/40 sm:bg-black/35 md:bg-black/30" />
+
+    {/* Strong readability gradients */}
+    <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/50 to-black/10" />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/20" />
+
+    {/* Subtle brand tint */}
+    <div className="absolute inset-0 bg-primary/5" />
   </div>
-  {/* Texture + Glow */}
-  <div className="absolute inset-0 dot-grid-light opacity-25" />
-  <div className="absolute right-0 top-0 h-[660px] w-[660px] rounded-full bg-primary/15 blur-[155px]" />
-  <div className="absolute bottom-0 left-0 h-[430px] w-[430px] rounded-full bg-primary/8 blur-[120px]" />
 
-  {/* Premium Lines */}
-  <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-  <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-primary/25 to-transparent" />
+  {/* Texture and Glow */}
+  <div className="pointer-events-none absolute inset-0 dot-grid-light opacity-[0.12]" />
 
-  <div className="container relative z-10 mx-auto px-6 pb-20 md:pb-24 lg:px-8">
+  <div className="pointer-events-none absolute right-0 top-0 h-[660px] w-[660px] rounded-full bg-primary/15 blur-[155px]" />
+
+  <div className="pointer-events-none absolute bottom-0 left-0 h-[430px] w-[430px] rounded-full bg-primary/10 blur-[120px]" />
+
+  {/* Premium Decorative Lines */}
+  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+
+  <div className="pointer-events-none absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
+
+  {/* Hero Content */}
+  <div className="container relative z-10 mx-auto px-6 pb-16 sm:pb-20 md:pb-24 lg:px-8">
     <motion.div
       initial="hidden"
       animate="visible"
       variants={stagger}
-      className="max-w-6xl space-y-8"
+      className="max-w-5xl space-y-4 sm:space-y-8"
     >
-      {/* Premium Badge */}
+      {/* Badge */}
       <motion.div variants={fadeUp}>
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-background/45 px-4 py-2 backdrop-blur-md">
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/40 px-4 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.25)] backdrop-blur-md">
           <Sparkles className="h-4 w-4 text-primary" />
-          <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+
+          <span className="text-[0.7rem] font-bold uppercase tracking-[0.22em] text-white">
             Neal Foundation
           </span>
         </div>
@@ -212,39 +224,43 @@ export default function Home() {
       {/* Heading */}
       <motion.h1
         variants={fadeUp}
-        className="font-serif font-bold display-hero text-white w-full max-w-3xl lg:w-2/3"
+        className="w-full max-w-4xl font-serif font-bold tracking-[-0.035em] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.75)]"
       >
-        <span className="block ">Care Beyond Boundaries -</span>
-
-        <span className="block text-gradient-brand lg:text-4xl sm:text-2xl text-xl font-semibold tracking-tight leading-16">
-         Touching Lives Every Day
+        <span className="block text-4xl leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl">
+          Care Beyond
+          <br className="hidden sm:block" /> Boundaries
         </span>
 
+        <span className="mt-3 block text-xl font-semibold leading-tight tracking-tight text-primary drop-shadow-[0_3px_16px_rgba(0,0,0,0.9)] sm:text-2xl md:text-3xl lg:text-4xl">
+          Touching Lives Every Day
+        </span>
       </motion.h1>
 
-      {/* Paragraph */}
+      {/* Description */}
       <motion.p
         variants={fadeUp}
-        className="max-w-2xl text-base font-medium leading-6 text-white"
+        className="max-w-2xl text-base font-medium leading-7 text-white/95 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] sm:text-lg"
       >
         Neal Foundation supports community-led initiatives across India,
-        fostering volunteer outreach, education, and compassionate care
-        for families and neighborhoods in need.
+        fostering volunteer outreach, education, and compassionate care for
+        families and neighborhoods in need.
       </motion.p>
 
+      {/* CTA */}
       <motion.div
         variants={fadeUp}
-        className="flex flex-col gap-4 sm:flex-row"
+        className="flex flex-col gap-4 pt-1 sm:flex-row"
       >
         <Button
           size="lg"
           asChild
-          className="h-[52px] rounded-md bg-primary px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 premium-glow"
+          className="group h-[52px] rounded-md bg-primary px-9 text-[0.84rem] font-bold uppercase tracking-[0.08em] text-primary-foreground shadow-[0_14px_35px_rgba(220,38,38,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-[0_18px_45px_rgba(220,38,38,0.4)]"
           data-testid="button-schedule-consultation"
         >
           <Link href="/contact">
             Join Us
-            <ArrowRight className="ml-2 h-4 w-4" />
+
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </Button>
       </motion.div>

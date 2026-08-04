@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/select";
 import { fadeUp, stagger } from "@/lib/animations";
 import { SectionLabel } from "@/components/shared";
+import Hero from "@/components/layout/Hero";
 import {
   contactSchema,
   type ContactFormValues,
@@ -60,27 +61,12 @@ export default function Contact() {
   return (
     <div className="w-full overflow-x-hidden bg-background">
       {/* HERO */}
-      <section className="relative flex min-h-[100vh] items-end overflow-hidden bg-background pb-0 pt-32">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-[position:center_right]" style={{
-            backgroundImage: "url('/contact.webp')",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/40 sm:bg-black/35 md:bg-black/30" />
-        </div>
-
-        <div className="absolute inset-0 dot-grid-light opacity-25" />
-        <div className="absolute right-0 top-0 h-[660px] w-[660px] rounded-full bg-primary/15 blur-[155px]" />
-        <div className="absolute bottom-0 left-0 h-[420px] w-[420px] rounded-full bg-primary/8 blur-[120px]" />
-
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-        <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-primary/25 to-transparent" />
-
-        <div className="container relative z-10 mx-auto px-6 pb-20 lg:px-8">
+      <Hero image="/contact.webp" alt="Contact Neal Foundation" className="pb-0 pt-32">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="max-w-5xl space-y-7"
+            className="max-w-5xl space-y-4"
           >
             <motion.div variants={fadeUp}>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-background/45 px-4 py-2 backdrop-blur-md">
@@ -135,8 +121,7 @@ export default function Contact() {
               </Button>
             </motion.div>
           </motion.div>
-        </div>
-      </section>
+      </Hero>
 
       {/* FLOATING CONTACT HIGHLIGHTS */}
       <section className="relative  px-6 lg:px-8">

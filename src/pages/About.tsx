@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Hero from "@/components/layout/Hero";
 import { Link } from "wouter";
 import {
   ArrowRight,
@@ -70,32 +71,12 @@ export default function About() {
   return (
     <div className="w-full overflow-x-hidden bg-background">
       {/* HERO */}
-      <section className="relative flex min-h-[100vh] items-end overflow-hidden bg-background pb-20 pt-36">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="/about.webp"
-            alt="Neal Foundation About Hero Background"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40 sm:bg-black/35 md:bg-black/30" />
-        </div>
-
-        {/* Texture + Glow */}
-        <div className="absolute inset-0 dot-grid-light opacity-25" />
-        <div className="absolute right-0 top-0 h-[620px] w-[620px] rounded-full bg-primary/15 blur-[150px]" />
-        <div className="absolute bottom-0 left-0 h-[420px] w-[420px] rounded-full bg-primary/8 blur-[120px]" />
-
-        {/* Luxury Lines */}
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
-        <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
-
-        <div className="container relative z-10 mx-auto px-6 lg:px-8">
+      <Hero image="/about.webp" alt="Neal Foundation About Hero Background" className="pb-20 pt-36">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="max-w-5xl space-y-7"
+            className="max-w-5xl space-y-4"
           >
             <motion.div variants={fadeUp}>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-background/45 px-4 py-2 backdrop-blur-md">
@@ -145,8 +126,7 @@ export default function About() {
               </Button>
             </motion.div>
           </motion.div>
-        </div>
-      </section>
+      </Hero>
 
       {/* ABOUT DETAILS */}
       <section className="relative overflow-hidden bg-background py-28 lg:py-32">

@@ -4,6 +4,7 @@ import { Heart, BookOpen, Apple, PawPrint, ArrowRight, Sparkles } from "lucide-r
 import { Button } from "@/components/ui/button";
 import { fadeUp, stagger } from "@/lib/animations";
 import { SectionLabel } from "@/components/shared";
+import Hero from "@/components/layout/Hero";
 
 export default function OurWork() {
   const workAreas = [
@@ -48,29 +49,12 @@ export default function OurWork() {
   return (
     <div className="w-full overflow-x-hidden bg-background">
       {/* HERO */}
-      <section className="relative flex min-h-[100vh] items-end overflow-hidden bg-background pb-20 pt-36">
-        <div className="absolute inset-0">
-          <img
-            src="/our.webp"
-            alt="Our Work"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40 sm:bg-black/35 md:bg-black/30" />
-        </div>
-
-        <div className="absolute inset-0 dot-grid-light opacity-25" />
-        <div className="absolute right-0 top-0 h-[620px] w-[620px] rounded-full bg-primary/15 blur-[150px]" />
-        <div className="absolute bottom-0 left-0 h-[420px] w-[420px] rounded-full bg-primary/8 blur-[120px]" />
-
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
-        <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
-
-        <div className="container relative z-10 mx-auto px-6 lg:px-8">
+      <Hero image="/our.webp" alt="Our Work" className="pb-20 pt-36">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="max-w-5xl space-y-7"
+            className="max-w-5xl space-y-4"
           >
             <motion.div variants={fadeUp}>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-background/45 px-4 py-2 backdrop-blur-md">
@@ -120,8 +104,7 @@ export default function OurWork() {
               </Button>
             </motion.div>
           </motion.div>
-        </div>
-      </section>
+      </Hero>
 
       {/* WORK AREAS */}
       <section id="work-areas" className="relative overflow-hidden bg-background py-28 lg:py-32">
